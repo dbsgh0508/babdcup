@@ -4,157 +4,333 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="친구들이랑 음식 월드컵 하고, 다 같이 납득할 메뉴를 골라주는 냠픽">
-<meta name="theme-color" content="#D2432A">
+<meta name="theme-color" content="#FFF6F4">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="냠픽">
 <title>냠픽 NyamPick</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-/* Layout: 폰 한 대를 돌려가며 쓰는 단일 컬럼 앱. 식당 번호표 같은 결과 카드가 마지막에 나온다 */
+/* Layout: 한 손에 쥐는 단일 컬럼 앱. 블러시 핑크→라벤더 배경 위에 음식 스티커가 흩어져 있고, 카드는 둥글고 말랑하게 */
 :root {
-  --bg: #F1F3EE;
+  --bg: #FFF6F4;
+  --bg-2: #F5EEFB;
   --surface: #FFFFFF;
-  --ink: #1C2420;
-  --muted: #5F6A60;
-  --line: #D6DCD2;
-  --accent: #D2432A;      /* 고추장 */
-  --accent-soft: #F7E0DA;
+  --ink: #3B3040;
+  --muted: #877A86;
+  --line: #F0E1E7;
+  --brand: #6E5A7E;          /* 이름·로고: 차분한 플럼 */
+  --accent: #D9577A;         /* 주요 버튼: 로즈 */
   --on-accent: #FFFFFF;
-  --yolk: #F2C233;        /* 단무지/계란 노른자 */
-  --on-yolk: #2A2310;
-  --good: #2E7A4D;
-  --display: "Black Han Sans", "Noto Sans KR", system-ui, sans-serif;
-  --body: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --accent-soft: #FDE4EB;
+  --butter: #FFF0BF;
+  --on-butter: #3B3040;
+  --mint: #D6F1E6;
+  --lilac: #ECE3FB;
+  --peach: #FFE4D4;
+  --sky: #DDEEFB;
+  --display: "Jua", "Noto Sans KR", system-ui, sans-serif;
+  --body: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --radius: 22px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #131714; --surface: #1C221E; --ink: #EBEFE7; --muted: #9AA595; --line: #2E3730;
-    --accent: #F0684C; --accent-soft: #3A221C; --on-accent: #1A0D09; --yolk: #E6B92E; --on-yolk: #1F1906; --good: #5BBE85;
+    --bg: #1F1A23; --bg-2: #261F2D; --surface: #2B2431; --ink: #F4EDF3; --muted: #B6A8B4; --line: #3D3443;
+    --brand: #D3C0E6; --accent: #F28AA3; --on-accent: #2A1019; --accent-soft: #46283A;
+    --butter: #F3DE98; --on-butter: #2E2530; --mint: #2E4A40; --lilac: #3A3150; --peach: #4A3530; --sky: #2B3C4C;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #131714; --surface: #1C221E; --ink: #EBEFE7; --muted: #9AA595; --line: #2E3730;
-  --accent: #F0684C; --accent-soft: #3A221C; --on-accent: #1A0D09; --yolk: #E6B92E; --on-yolk: #1F1906; --good: #5BBE85;
+  --bg: #1F1A23; --bg-2: #261F2D; --surface: #2B2431; --ink: #F4EDF3; --muted: #B6A8B4; --line: #3D3443;
+  --brand: #D3C0E6; --accent: #F28AA3; --on-accent: #2A1019; --accent-soft: #46283A;
+  --butter: #F3DE98; --on-butter: #2E2530; --mint: #2E4A40; --lilac: #3A3150; --peach: #4A3530; --sky: #2B3C4C;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { min-height: 100%; }
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-body { margin: 0; }
 body {
-  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55;
+  margin: 0;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%) fixed, var(--bg);
+  color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 20px 40px;
+  padding-block: 18px 40px;
+  overflow-x: hidden;
 }
-.app { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.brand b { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: .02em; color: var(--accent); }
-.brand span { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
-h1 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; }
-h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--muted); margin: 0; }
+.ic { width: 1em; height: 1em; display: block; flex: none; }
+
+/* ── 스플래시 ───────────────────────── */
+#splash {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: radial-gradient(120% 80% at 50% 40%, var(--accent-soft) 0%, var(--bg) 55%, var(--bg-2) 100%);
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  transition: opacity .5s ease, visibility .5s;
+}
+#splash.hide { opacity: 0; visibility: hidden; }
+.sp-ring { position: relative; width: 240px; height: 240px; display: grid; place-items: center; }
+.sp-ring .ic { position: absolute; width: 58px; height: 58px; animation: pop .55s cubic-bezier(.2,1.6,.4,1) both; }
+.sp-ring .ic:nth-child(1) { top: 2px;  left: 91px;  animation-delay: .05s; }
+.sp-ring .ic:nth-child(2) { top: 44px; left: 172px; animation-delay: .15s; }
+.sp-ring .ic:nth-child(3) { top: 136px; left: 172px; animation-delay: .25s; }
+.sp-ring .ic:nth-child(4) { top: 178px; left: 91px; animation-delay: .35s; }
+.sp-ring .ic:nth-child(5) { top: 136px; left: 10px; animation-delay: .45s; }
+.sp-ring .ic:nth-child(6) { top: 44px; left: 10px;  animation-delay: .55s; }
+.sp-logo { font-family: var(--display); font-size: 64px; line-height: 1; color: var(--brand); animation: rise .7s .2s cubic-bezier(.2,1.4,.4,1) both; }
+.sp-tag { color: var(--muted); font-size: 15px; letter-spacing: .04em; animation: rise .7s .35s ease both; }
+.sp-dots { display: flex; gap: 6px; margin-top: 18px; }
+.sp-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1s infinite; }
+.sp-dots i:nth-child(2) { animation-delay: .15s; } .sp-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes pop { from { transform: scale(0) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes blink { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+
+/* ── 배경 스티커 ─────────────────────── */
+#decor { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+#decor .ic { position: absolute; width: 64px; height: 64px; opacity: .16; }
+@media (min-width: 700px) { #decor .ic { opacity: .22; width: 84px; height: 84px; } }
+
+/* ── 배경음악 버튼 ───────────────────── */
+#bgm {
+  position: fixed; z-index: 20;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  right: max(14px, calc(env(safe-area-inset-right, 0px) + 14px));
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface); color: var(--brand);
+  display: grid; place-items: center; cursor: pointer; font-size: 20px;
+  box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--brand) 40%, transparent);
+}
+#bgm[aria-pressed="false"] { color: var(--muted); }
+#bgm[aria-pressed="false"] .wave { display: none; }
+#bgm[aria-pressed="true"] .ic { animation: sway 1.6s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+
+/* ── 앱 ──────────────────────────────── */
+.app { position: relative; z-index: 1; max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.brand { display: flex; align-items: baseline; gap: 10px; padding-right: 56px; min-height: 44px; }
+.brand b { font-family: var(--display); font-weight: 400; font-size: 32px; line-height: 1; color: var(--brand); }
+.brand span { font-size: 13px; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 400; font-size: 29px; line-height: 1.25; margin: 0; text-wrap: balance; word-break: keep-all; }
+h2 { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--muted); margin: 0; }
 p { margin: 0; }
-.lead { color: var(--muted); }
+.lead { color: var(--muted); word-break: keep-all; }
 .stack { display: flex; flex-direction: column; gap: 10px; }
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
 .row { display: flex; gap: 8px; align-items: center; }
 input[type=text] {
   flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px;
 }
 input[type=text]:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 button { font: inherit; cursor: pointer; }
 .btn {
-  border: 0; border-radius: 12px; padding: 14px 18px; font-weight: 700; font-size: 16px;
+  border: 0; border-radius: 18px; padding: 15px 18px; font-family: var(--display); font-size: 19px;
   background: var(--accent); color: var(--on-accent); width: 100%;
+  box-shadow: 0 10px 22px -12px var(--accent);
+  transition: transform .12s ease;
 }
-.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 14px; padding: 11px 14px; }
+.btn:active { transform: scale(.98); }
+.btn.ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: none; font-family: var(--body); font-size: 14px; font-weight: 500; padding: 12px 14px; }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
-.icon-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 10px; width: 42px; height: 42px; flex: none; font-size: 18px; }
+.icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 14px; width: 44px; height: 44px; flex: none; font-size: 18px; }
+.icon-btn:disabled { opacity: .35; cursor: not-allowed; }
 .seg { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: 6px; }
 .seg button {
-  border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px;
-  padding: 9px 6px; font-size: 14px; font-weight: 500;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 14px;
+  padding: 10px 6px; font-size: 14px; font-weight: 500;
 }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.hint { font-size: 13px; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--brand); color: var(--surface); border-color: var(--brand); }
+.hint { font-size: 13px; color: var(--muted); word-break: keep-all; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
-  border-radius: 999px; padding: 7px 13px; font-size: 14px;
-}
+.chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 14px; font-size: 14px; }
 .chip[aria-pressed="true"].no { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .chip[aria-pressed="true"].meh { background: var(--accent-soft); color: var(--ink); border-color: var(--accent); }
 .chip:disabled { opacity: .35; cursor: not-allowed; }
-.progress { display: flex; gap: 4px; }
-.progress i { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
+.progress { display: flex; gap: 5px; }
+.progress i { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
 .progress i.on { background: var(--accent); }
 
+/* 메뉴판 인포그래픽 */
+.menuboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.menuboard .mb:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.mb { border-radius: 18px; padding: 12px 12px 10px; display: flex; flex-direction: column; gap: 6px; color: var(--ink); }
+.mb .top { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.mb .ic { width: 40px; height: 40px; }
+.mb .cnt { font-family: var(--display); font-size: 24px; line-height: 1; font-variant-numeric: tabular-nums; }
+.mb .cnt small { font-family: var(--body); font-size: 12px; color: var(--muted); margin-left: 2px; }
+.mb .nm { font-size: 13px; font-weight: 700; }
+.mb .meter { height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 10%, transparent); overflow: hidden; }
+.mb .meter span { display: block; height: 100%; border-radius: 3px; background: var(--brand); }
+.c-한식 { background: var(--peach); } .c-중식 { background: var(--butter); } .c-일식 { background: var(--accent-soft); }
+.c-양식 { background: var(--lilac); } .c-분식 { background: var(--accent-soft); } .c-아시안 { background: var(--mint); } .c-패스트푸드 { background: var(--sky); }
+.mb.c-중식 { color: var(--on-butter); }
+
 /* 핸드오프 */
-.handoff { text-align: center; padding-block: 48px; gap: 16px; align-items: center; }
-.handoff .who { font-family: var(--display); font-size: 48px; line-height: 1.1; color: var(--accent); word-break: keep-all; }
+.handoff { text-align: center; padding-block: 36px; gap: 14px; align-items: center; }
+.handoff .ic { width: 84px; height: 84px; animation: bob 2.4s ease-in-out infinite; }
+.handoff .who { font-family: var(--display); font-size: 50px; line-height: 1.1; color: var(--brand); word-break: keep-all; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 /* 월드컵 */
 .wc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.wc-head .round { font-family: var(--display); font-size: 22px; }
-.wc-head .count { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wc-head .round { font-family: var(--display); font-size: 26px; color: var(--brand); }
+.wc-head .count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .duel { display: grid; gap: 10px; }
 .pick {
-  background: var(--surface); color: var(--ink); border: 2px solid var(--line); border-radius: 16px;
-  padding: 26px 18px; display: flex; flex-direction: column; gap: 10px; text-align: left;
-  transition: transform .12s ease, border-color .12s ease;
+  background: var(--surface); color: var(--ink); border: 2px solid var(--line); border-radius: 26px;
+  padding: 20px 18px; display: flex; align-items: center; gap: 14px; text-align: left;
+  transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
 }
-.pick:hover { border-color: var(--accent); }
+.pick:hover { border-color: var(--accent); box-shadow: 0 12px 24px -16px var(--accent); }
 .pick:active { transform: scale(.98); }
-.pick .name { font-family: var(--display); font-size: 34px; line-height: 1.1; }
-.pick .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; }
-.price { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-left: auto; }
-.vs { text-align: center; font-family: var(--display); color: var(--accent); font-size: 18px; letter-spacing: .1em; }
+.pick .art { width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center; flex: none; }
+.pick .art .ic { width: 56px; height: 56px; }
+.pick .txt { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pick .name { font-family: var(--display); font-size: 30px; line-height: 1.1; word-break: keep-all; }
+.pick .meta { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.tag { font-size: 12px; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 1px 8px; }
+.price { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vs { text-align: center; font-family: var(--display); color: var(--accent); font-size: 20px; letter-spacing: .1em; }
 
-/* 결과: 번호표 */
+/* 결과 */
 .ticket {
-  background: var(--yolk); color: var(--on-yolk); border-radius: 16px; padding: 22px 20px 18px;
-  display: flex; flex-direction: column; gap: 8px; position: relative;
+  background: var(--butter); color: var(--on-butter); border-radius: 28px; padding: 22px 20px 18px;
+  display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden;
 }
-.ticket::after {
-  content: ""; position: absolute; left: 14px; right: 14px; bottom: 58px;
-  border-top: 2px dashed color-mix(in srgb, var(--on-yolk) 35%, transparent);
-}
-.ticket .no { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; }
-.ticket .name { font-family: var(--display); font-size: 48px; line-height: 1.05; word-break: keep-all; }
+.ticket .badge { position: absolute; right: 14px; top: 14px; width: 92px; height: 92px; }
+.ticket .no { font-size: 12px; letter-spacing: .12em; font-weight: 700; opacity: .7; }
+.ticket .name { font-family: var(--display); font-size: 52px; line-height: 1.05; word-break: keep-all; padding-right: 96px; }
 .ticket .reason { font-size: 14px; }
-.ticket .score { font-family: var(--mono); font-weight: 600; font-size: 15px; padding-top: 22px; display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; }
-.ticket .score a { color: var(--on-yolk); font-family: var(--body); font-weight: 700; font-size: 14px; }
-.alt { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+.ticket .foot { border-top: 2px dashed color-mix(in srgb, var(--on-butter) 30%, transparent); margin-top: 10px; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.ticket .pts { font-family: var(--display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.ticket .foot a { color: var(--on-butter); font-weight: 700; font-size: 14px; }
+.alt { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
 .alt:first-child { border-top: 0; padding-top: 0; }
-.alt .top { display: flex; align-items: baseline; gap: 10px; }
-.alt .rank { font-family: var(--mono); color: var(--muted); font-size: 13px; }
+.alt .top { display: flex; align-items: center; gap: 10px; }
+.alt .top .ic { width: 34px; height: 34px; }
+.alt .rank { color: var(--muted); font-size: 13px; }
 .alt .name { font-family: var(--display); font-size: 24px; }
-.alt .pts { margin-left: auto; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.alt .pts { margin-left: auto; font-family: var(--display); font-size: 18px; font-variant-numeric: tabular-nums; }
 .bars { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 10px; align-items: center; font-size: 12px; }
 .bars .n { color: inherit; max-width: 6em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.bars .track { height: 6px; border-radius: 3px; background: color-mix(in srgb, currentColor 18%, transparent); overflow: hidden; }
-.bars .fill { display: block; height: 100%; border-radius: 3px; background: currentColor; }
-.bars .v { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.bars .track { display: block; height: 7px; border-radius: 4px; background: color-mix(in srgb, currentColor 16%, transparent); overflow: hidden; }
+.bars .fill { display: block; height: 100%; border-radius: 4px; background: currentColor; }
+.bars .v { font-variant-numeric: tabular-nums; }
 .links { display: flex; gap: 14px; font-size: 13px; }
 .links a { color: var(--accent); font-weight: 700; }
 details summary { cursor: pointer; font-size: 14px; color: var(--muted); }
 details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
 .empty { text-align: center; padding: 24px 12px; color: var(--muted); }
 .sample { font-size: 12px; color: var(--muted); text-align: center; }
-@media (prefers-reduced-motion: reduce) { .pick { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
 </style>
 
+<!-- 음식 일러스트 (직접 그린 단순 도형) -->
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="f-bowl" viewBox="0 0 64 64">
+      <path d="M14 31 Q16 15 32 15 Q48 15 50 31 Z" fill="#FFFFFF" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M38 6 L30 26 M45 8 L35 27" stroke="#B9875F" stroke-width="3" stroke-linecap="round"/>
+      <path d="M8 31 H56 Q54 51 32 53 Q10 51 8 31 Z" fill="#FFB4A2" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M17 39 H47" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity=".75"/>
+      <rect x="24" y="53" width="16" height="4" rx="2" fill="#4A3B47"/>
+    </symbol>
+    <symbol id="f-dumpling" viewBox="0 0 64 64">
+      <ellipse cx="32" cy="50" rx="25" ry="5" fill="#E7DCF8"/>
+      <path d="M8 44 Q10 18 32 16 Q54 18 56 44 Q32 52 8 44 Z" fill="#FFF3D6" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M23 20 Q25 27 23 32 M32 17 Q34 25 32 31 M41 20 Q43 27 41 32" fill="none" stroke="#4A3B47" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="25" cy="39" r="1.8" fill="#4A3B47"/><circle cx="39" cy="39" r="1.8" fill="#4A3B47"/>
+      <path d="M29 42 Q32 45 35 42" fill="none" stroke="#4A3B47" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="20" cy="43" r="2.6" fill="#F7A8B8"/><circle cx="44" cy="43" r="2.6" fill="#F7A8B8"/>
+    </symbol>
+    <symbol id="f-sushi" viewBox="0 0 64 64">
+      <rect x="11" y="30" width="42" height="20" rx="10" fill="#FFFFFF" stroke="#4A3B47" stroke-width="2.5"/>
+      <path d="M8 31 Q10 18 32 18 Q54 18 56 31 Q32 36 8 31 Z" fill="#FF9E80" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M18 22 L22 31 M28 20 L31 32 M39 20 L41 32 M48 22 L48 30" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+      <rect x="27" y="19" width="10" height="31" fill="#3E4A3D" opacity=".92"/>
+      <circle cx="21" cy="42" r="1.6" fill="#4A3B47"/><circle cx="45" cy="42" r="1.6" fill="#4A3B47"/>
+    </symbol>
+    <symbol id="f-pizza" viewBox="0 0 64 64">
+      <path d="M13 15 L51 15 L32 56 Z" fill="#FFD36E" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M9 12 Q32 4 55 12 L52 19 Q32 12 12 19 Z" fill="#E8A65A" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="25" cy="25" r="4.5" fill="#F07A7A"/><circle cx="39" cy="26" r="4.5" fill="#F07A7A"/><circle cx="32" cy="39" r="4" fill="#F07A7A"/>
+      <path d="M22 33 l2 1 M40 35 l-2 1" stroke="#7DBF6E" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="f-tteok" viewBox="0 0 64 64">
+      <path d="M12 56 L52 8" stroke="#C99A6B" stroke-width="3.5" stroke-linecap="round"/>
+      <g fill="#F2716B" stroke="#4A3B47" stroke-width="2.5">
+        <rect x="11" y="37" width="20" height="11" rx="5.5" transform="rotate(-50 21 42.5)"/>
+        <rect x="21" y="25" width="20" height="11" rx="5.5" transform="rotate(-50 31 30.5)"/>
+        <rect x="31" y="13" width="20" height="11" rx="5.5" transform="rotate(-50 41 18.5)"/>
+      </g>
+      <circle cx="19" cy="40" r="1.2" fill="#FFFFFF"/><circle cx="31" cy="29" r="1.2" fill="#FFFFFF"/><circle cx="41" cy="17" r="1.2" fill="#FFFFFF"/>
+    </symbol>
+    <symbol id="f-noodle" viewBox="0 0 64 64">
+      <path d="M22 10 Q20 6 23 3 M32 9 Q30 5 33 2" fill="none" stroke="#B6A8B4" stroke-width="2" stroke-linecap="round"/>
+      <path d="M40 4 L30 30 M48 6 L36 31" stroke="#B9875F" stroke-width="3" stroke-linecap="round"/>
+      <path d="M16 30 Q20 18 24 30 Q28 18 32 30 Q36 18 40 30 Q44 18 48 30" fill="none" stroke="#F4C95D" stroke-width="3" stroke-linecap="round"/>
+      <path d="M8 30 H56 Q54 51 32 53 Q10 51 8 30 Z" fill="#A8DCC9" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M14 38 Q20 34 26 38 Q32 42 38 38 Q44 34 50 38" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity=".8"/>
+      <rect x="24" y="53" width="16" height="4" rx="2" fill="#4A3B47"/>
+    </symbol>
+    <symbol id="f-burger" viewBox="0 0 64 64">
+      <path d="M11 30 Q11 11 32 11 Q53 11 53 30 Z" fill="#F7C27B" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M22 19 l2 -1 M31 16 l2 0 M40 19 l2 1" stroke="#FFF7E6" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M9 32 Q14 27 19 32 Q24 27 29 32 Q34 27 39 32 Q44 27 49 32 Q53 28 55 32 L55 35 L9 35 Z" fill="#9ED98A" stroke="#4A3B47" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M12 35 H52 L44 41 L36 35" fill="#FFD36E"/>
+      <rect x="10" y="36" width="44" height="8" rx="4" fill="#8A5A44" stroke="#4A3B47" stroke-width="2.5"/>
+      <path d="M12 46 H52 Q52 54 44 54 H20 Q12 54 12 46 Z" fill="#F7C27B" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="f-donut" viewBox="0 0 64 64">
+      <circle cx="32" cy="33" r="23" fill="#F2C89B" stroke="#4A3B47" stroke-width="2.5"/>
+      <path d="M12 30 Q14 14 32 12 Q50 14 52 30 Q50 36 46 33 Q42 40 37 35 Q32 41 27 35 Q22 40 18 34 Q13 37 12 30 Z" fill="#F7A8C4" stroke="#4A3B47" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="32" cy="31" r="7" fill="#FFFFFF" stroke="#4A3B47" stroke-width="2.2"/>
+      <path d="M20 22 l3 -2 M42 20 l2 3 M26 15 l3 1 M45 28 l3 0 M36 17 l-1 3" stroke="#7FB9E8" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="f-latte" viewBox="0 0 64 64">
+      <path d="M14 22 H46 L42 54 Q41 57 38 57 H22 Q19 57 18 54 Z" fill="#FFFFFF" stroke="#4A3B47" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M46 28 Q56 28 55 37 Q54 45 44 44" fill="none" stroke="#4A3B47" stroke-width="2.5"/>
+      <path d="M17 34 H43 L41 50 H19 Z" fill="#C89B7B"/>
+      <path d="M26 41 Q30 37 30 42 Q30 37 34 41 Q30 47 30 47 Q30 47 26 41 Z" fill="#FFFFFF"/>
+      <path d="M24 16 Q22 11 25 7 M33 16 Q31 11 34 7" fill="none" stroke="#B6A8B4" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-note" viewBox="0 0 24 24">
+      <path d="M9 18 V5 L19 3 V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.6" fill="currentColor"/><circle cx="16.5" cy="16" r="2.6" fill="currentColor"/>
+      <path class="wave" d="M21.5 8 Q23 10 21.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="splash" role="status" aria-label="냠픽을 여는 중">
+  <div class="sp-ring">
+    <svg class="ic"><use href="#f-bowl"/></svg>
+    <svg class="ic"><use href="#f-sushi"/></svg>
+    <svg class="ic"><use href="#f-pizza"/></svg>
+    <svg class="ic"><use href="#f-donut"/></svg>
+    <svg class="ic"><use href="#f-burger"/></svg>
+    <svg class="ic"><use href="#f-dumpling"/></svg>
+    <div><div class="sp-logo">냠픽</div></div>
+  </div>
+  <div class="sp-tag">우리 뭐 먹지? 다 같이 고르는 메뉴</div>
+  <div class="sp-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+</div>
+
+<div id="decor" aria-hidden="true"></div>
+<button id="bgm" type="button" aria-pressed="true" aria-label="배경음악 켜기/끄기" hidden><svg class="ic"><use href="#i-note"/></svg></button>
 <div class="app" id="app"></div>
 
 <script>
@@ -166,6 +342,32 @@ const CUISINES = DATA.tag_groups["종류"];
 const HARD_OPTS = DATA.hard_no_options;
 const DISLIKE_OPTS = ["매운맛", "국물", "튀김", "기름진", "해산물", "날것", "내장", "채소위주", "유제품", "냄새강함", "중식", "일식", "양식", "분식", "아시안"];
 const BUDGETS = [[10000, "1만원 이하"], [15000, "1.5만원 이하"], [20000, "2만원 이하"], [null, "상관없음"]];
+const ART = { "한식": "f-bowl", "중식": "f-dumpling", "일식": "f-sushi", "양식": "f-pizza", "분식": "f-tteok", "아시안": "f-noodle", "패스트푸드": "f-burger" };
+const cuisineOf = m => CUISINES.find(c => m.tags.includes(c)) || "한식";
+const icon = (id, cls = "ic") => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+// ── 받침에 따라 조사 고르기 ─────────────────────────────────
+// 한글: 마지막 글자에 받침이 있는지 / 숫자: 읽는 소리 / 영어: 발음 규칙으로 추정
+const DIGIT_BATCHIM = new Set("013678");          // 영 일 삼 육 칠 팔
+const LETTER_BATCHIM = new Set("LMNR");           // 엘 엠 엔 알
+function hasBatchim(word) {
+  const w = String(word).trim().replace(/[^0-9A-Za-z가-힣ㄱ-ㅎ]+$/u, "");
+  if (!w) return false;
+  const ch = w.slice(-1), code = ch.charCodeAt(0);
+  if (code >= 0xAC00 && code <= 0xD7A3) return (code - 0xAC00) % 28 !== 0;
+  if (code >= 0x3131 && code <= 0x314E) return true;
+  if (/[0-9]/.test(ch)) return DIGIT_BATCHIM.has(ch);
+  if (/[A-Z]/.test(ch) && !/[a-z]/.test(w)) return LETTER_BATCHIM.has(ch);  // 약자: JK, A, BTS
+  const lw = w.toLowerCase();
+  if (/(ng|ck|[lmn])$/.test(lw)) return true;                   // Tom, Paul, John, Jack, Young
+  if (/[aeiou]([bkpt])\1?$/.test(lw)) return true;               // Bob, Pat, Matt
+  return false;                                                  // Kate, Mike, Peter
+}
+// josa("민지", "이에요/예요") → "민지예요",  josa("서연", "이/가") → "서연이"
+function josa(word, pair) {
+  const [withB, withoutB] = pair.split("/");
+  return word + (hasBatchim(word) ? withB : withoutB);
+}
 
 // ── 점수 알고리즘 (meal_score.py v0.1 포팅) ─────────────────
 const ROUND_SCORE = { 1: 1.0, 2: 0.85, 4: 0.7, 8: 0.55, 16: 0.4, 32: 0.25 };
@@ -247,6 +449,93 @@ function makeBracket() {
 }
 const ROUND_LABEL = { 16: "16강", 8: "8강", 4: "준결승", 2: "결승" };
 
+// ── 배경음악: 파일 없이 브라우저에서 바로 만드는 잔잔한 루프 ─────
+const BGM = {
+  ctx: null, bus: null, master: null, playing: false, timer: null, nextT: 0, step: 0, started: false,
+  on: (() => { try { return localStorage.getItem("nyampick-bgm") !== "off"; } catch (e) { return true; } })(),
+  init() {
+    if (this.ctx) return true;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    const c = this.ctx = new AC();
+    this.master = c.createGain(); this.master.gain.value = 0;
+    const lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 2400;
+    const dl = c.createDelay(); dl.delayTime.value = 0.42;
+    const fb = c.createGain(); fb.gain.value = 0.3;
+    this.bus = c.createGain();
+    this.bus.connect(lp); this.bus.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(lp);
+    lp.connect(this.master); this.master.connect(c.destination);
+    return true;
+  },
+  start() {
+    this.started = true; syncBgmButton();
+    if (!this.on || !this.init()) return;
+    this.ctx.resume();
+    const t = this.ctx.currentTime;
+    this.master.gain.cancelScheduledValues(t);
+    this.master.gain.setTargetAtTime(0.55, t, 0.9);
+    if (this.playing) return;
+    this.playing = true; this.nextT = t + 0.1; this.step = 0;
+    clearInterval(this.timer); this.timer = setInterval(() => this.tick(), 100);
+  },
+  stop(fade = 1.2) {
+    if (!this.ctx || !this.playing) return;
+    const t = this.ctx.currentTime;
+    this.master.gain.cancelScheduledValues(t);
+    this.master.gain.setTargetAtTime(0, t, fade / 3);
+    this.playing = false;
+    setTimeout(() => { if (!this.playing) clearInterval(this.timer); }, fade * 1000 + 300);
+  },
+  tick() {
+    const spb = 60 / 74 / 2;                                   // 8분음표, 74bpm
+    while (this.nextT < this.ctx.currentTime + 0.4) { this.play(this.step, this.nextT, spb); this.nextT += spb; this.step++; }
+  },
+  play(s, t, spb) {
+    const bar = Math.floor(s / 8) % 4, pos = s % 8;
+    const chords = [[53, 57, 60, 64], [52, 55, 59, 62], [50, 53, 57, 60], [48, 52, 55, 59]]; // Fmaj7 Em7 Dm7 Cmaj7
+    const mel = [[76, 0, 72, 0, 74, 0, 69, 0], [71, 0, 67, 0, 72, 74, 0, 0], [69, 0, 72, 0, 77, 0, 76, 0], [74, 0, 72, 0, 67, 0, 0, 0]];
+    if (pos === 0) {
+      chords[bar].forEach(n => this.note(n, t, spb * 8, "sine", 0.045, 0.8));
+      this.note(chords[bar][0] - 12, t, spb * 8, "triangle", 0.06, 0.05);
+    }
+    if (pos === 4) this.note(chords[bar][2] - 12, t, spb * 4, "triangle", 0.035, 0.05);
+    const m = mel[bar][pos];
+    if (m) this.note(m, t, spb * 2.2, "triangle", 0.04, 0.005);
+  },
+  note(midi, t, dur, type, vol, att) {
+    const c = this.ctx, o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.value = 440 * Math.pow(2, (midi - 69) / 12);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol, t + att + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(this.bus); o.start(t); o.stop(t + dur + 0.05);
+  },
+  chime() {
+    if (!this.on || !this.ctx) return;
+    const t = this.ctx.currentTime + 0.05;
+    this.master.gain.cancelScheduledValues(t); this.master.gain.setValueAtTime(0.55, t);
+    [[79, 0], [84, 0.14], [88, 0.28]].forEach(([n, d]) => this.note(n, t + d, 1.4, "triangle", 0.06, 0.005));
+    this.master.gain.setTargetAtTime(0, t + 1.6, 0.4);
+  },
+  toggle() {
+    this.on = !this.on;
+    try { localStorage.setItem("nyampick-bgm", this.on ? "on" : "off"); } catch (e) {}
+    if (this.on && ["handoff", "prefs", "wc"].includes(S.screen)) this.start(); else this.stop(0.6);
+    syncBgmButton();
+  }
+};
+const bgmBtn = document.getElementById("bgm");
+function syncBgmButton() {
+  bgmBtn.hidden = !BGM.started;
+  bgmBtn.setAttribute("aria-pressed", String(BGM.on));
+  bgmBtn.setAttribute("aria-label", BGM.on ? "배경음악 끄기" : "배경음악 켜기");
+}
+bgmBtn.addEventListener("click", () => BGM.toggle());
+document.addEventListener("visibilitychange", () => {
+  if (!BGM.ctx) return;
+  if (document.hidden) BGM.ctx.suspend(); else if (BGM.playing) BGM.ctx.resume();
+});
+
 // ── 상태 ─────────────────────────────────────────────────────
 const S = { screen: "setup", names: ["민지", "현우", "서연", "준호"], mode: "평화", people: [], cur: 0, bracket: [], wc: null, demo: false };
 const app = document.getElementById("app");
@@ -260,6 +549,22 @@ function render() {
   window.scrollTo(0, 0);
 }
 
+// 메뉴판 인포그래픽: 종류별 메뉴 수
+function menuBoard() {
+  const counts = CUISINES.map(c => [c, MENUS.filter(m => m.tags[0] === c).length]);
+  const max = Math.max(...counts.map(x => x[1]));
+  return `<div class="panel">
+    <h2>냠픽 메뉴판 · 모두 ${MENUS.length}가지</h2>
+    <div class="menuboard">${counts.map(([c, n]) => `
+      <div class="mb c-${c}">
+        <div class="top">${icon(ART[c])}<span class="cnt">${n}<small>개</small></span></div>
+        <span class="nm">${c}</span>
+        <span class="meter"><span style="width:${Math.round(n / max * 100)}%"></span></span>
+      </div>`).join("")}
+    </div>
+  </div>`;
+}
+
 // 1) 설정
 function viewSetup() {
   const rows = S.names.map((n, i) => `
@@ -270,10 +575,10 @@ function viewSetup() {
   return `
     <div class="stack">
       <h1>오늘 같이 먹는 사람</h1>
-      <p class="lead">폰 하나로 한 명씩 돌려가며 음식 월드컵을 해요. 다 끝나면 모두가 납득할 메뉴를 골라드려요.</p>
+      <p class="lead">폰 하나를 돌려가며 음식 월드컵을 해요. 다 끝나면 모두가 납득할 메뉴를 골라드려요.</p>
     </div>
     <div class="panel">
-      <h2>멤버 (${S.names.length}명)</h2>
+      <h2>멤버 ${S.names.length}명</h2>
       <div class="stack">${rows}</div>
       <button class="btn ghost" data-act="add" ${S.names.length >= 8 ? "disabled" : ""}>+ 사람 추가</button>
     </div>
@@ -284,7 +589,8 @@ function viewSetup() {
     </div>
     <button class="btn" data-act="start">시작하기</button>
     <button class="btn ghost" data-act="demo">예시 결과 먼저 보기</button>
-    <p class="sample">이름 칸은 예시예요. 실제 멤버로 바꿔주세요.</p>`;
+    <p class="sample">이름 칸은 예시예요. 실제 멤버로 바꿔주세요.</p>
+    ${menuBoard()}`;
 }
 function modeSeg() {
   return `<div class="seg" style="--n:3">${Object.keys(MODES).map(m =>
@@ -292,16 +598,18 @@ function modeSeg() {
 }
 
 // 2) 폰 넘기기
+const HANDOFF_ART = ["f-dumpling", "f-donut", "f-sushi", "f-latte", "f-burger", "f-pizza", "f-bowl", "f-noodle"];
 function viewHandoff() {
-  const p = S.people[S.cur];
+  const p = S.people[S.cur], name = esc(p.name);
   return `
     ${progress()}
     <div class="panel handoff">
+      ${icon(HANDOFF_ART[S.cur % HANDOFF_ART.length])}
       <p class="lead">폰을 넘겨주세요</p>
-      <div class="who">${esc(p.name)}</div>
-      <p class="hint">${S.cur + 1} / ${S.people.length}번째 차례 · 다른 사람 선택은 안 보여요</p>
+      <div class="who">${name}</div>
+      <p class="hint">이제 ${esc(josa(p.name, "이/가"))} 고를 차례예요 · ${S.cur + 1}/${S.people.length}<br>다른 사람 선택은 안 보여요</p>
     </div>
-    <button class="btn" data-act="go-prefs">제가 ${esc(p.name)}이에요</button>`;
+    <button class="btn" data-act="go-prefs">네, 제가 ${esc(josa(p.name, "이에요/예요"))}</button>`;
 }
 function progress() {
   return `<div class="progress" aria-label="진행 상황">${S.people.map((_, i) => `<i class="${i < S.cur ? "on" : ""}"></i>`).join("")}</div>`;
@@ -318,7 +626,7 @@ function viewPrefs() {
   const bud = BUDGETS.map(([v, l]) => `<button data-act="budget" data-v="${v ?? ""}" aria-pressed="${p.budget === v}">${l}</button>`).join("");
   return `
     ${progress()}
-    <h1>${esc(p.name)}님, 먼저 이것만요</h1>
+    <h1>${esc(p.name)}님, 먼저 이것만 알려주세요</h1>
     <div class="panel">
       <h2>절대 못 먹어요</h2>
       <p class="hint">여기 고른 게 들어간 메뉴는 아예 추천 안 해요</p>
@@ -367,9 +675,12 @@ function finishPerson() {
   S.screen = S.cur < S.people.length ? "handoff" : "result";
 }
 function card(name, idx) {
-  const m = M[name];
-  const tags = m.tags.filter(t => !CONTEXT_TAGS.has(t)).slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("");
-  return `<button class="pick" data-act="pick" data-i="${idx}"><span class="name">${esc(name)}</span><span class="meta">${tags}<span class="price">${won(m.price)}</span></span></button>`;
+  const m = M[name], c = cuisineOf(m);
+  const tags = m.tags.filter(t => !CONTEXT_TAGS.has(t) && t !== c).slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("");
+  return `<button class="pick" data-act="pick" data-i="${idx}">
+    <span class="art c-${c}">${icon(ART[c])}</span>
+    <span class="txt"><span class="name">${esc(name)}</span><span class="meta"><span class="tag">${c}</span>${tags}<span class="price">${won(m.price)}</span></span></span>
+  </button>`;
 }
 function viewWC() {
   const w = S.wc, p = S.people[S.cur];
@@ -395,15 +706,16 @@ function viewResult() {
     const [first, ...rest] = top;
     body = `
       <div class="ticket">
-        <span class="no">오늘의 메뉴 · No.1</span>
+        ${icon(ART[cuisineOf(M[first.name])], "ic badge")}
+        <span class="no">오늘의 메뉴 · NO.1</span>
         <span class="name">${esc(first.name)}</span>
         <span class="reason">${esc(first.reason)}</span>
         ${bars(first)}
-        <span class="score"><span>${first.score}점</span><a href="https://map.naver.com/p/search/${encodeURIComponent(first.name)}" target="_blank" rel="noopener">근처 식당 찾기 →</a></span>
+        <div class="foot"><span class="pts">${first.score}점</span><a href="https://map.naver.com/p/search/${encodeURIComponent(first.name)}" target="_blank" rel="noopener">근처 식당 찾기 →</a></div>
       </div>
       ${rest.length ? `<div class="panel">${rest.map((r, i) => `
         <div class="alt">
-          <div class="top"><span class="rank">${i + 2}위</span><span class="name">${esc(r.name)}</span><span class="pts">${r.score}점</span></div>
+          <div class="top">${icon(ART[cuisineOf(M[r.name])])}<span class="rank">${i + 2}위</span><span class="name">${esc(r.name)}</span><span class="pts">${r.score}점</span></div>
           <p class="hint">${esc(r.reason)}</p>
           ${bars(r)}
           ${find(r.name)}
@@ -411,9 +723,13 @@ function viewResult() {
   }
   const byPerson = {};
   for (const e of excluded) for (const b of e.blockers) (byPerson[b] ||= []).push(e.name);
-  const exList = Object.entries(byPerson).map(([n, list]) => `<li>${esc(n)} 못 먹음: ${list.map(esc).join(", ")}</li>`).join("");
+  const exList = Object.entries(byPerson).map(([n, list]) => `<li>${esc(josa(n, "이/가"))} 못 먹는 메뉴: ${list.map(esc).join(", ")}</li>`).join("");
+  const who = S.people.map(p => p.name).join(", ");
   return `
-    <h1>${S.demo ? "예시: PPT의 A~D 네 명" : "우리 오늘은 이거"}</h1>
+    <div class="stack">
+      <h1>${S.demo ? "예시: PPT의 A~D 네 명" : "우리 오늘은 이거"}</h1>
+      <p class="lead">${esc(who)}의 선택을 모았어요</p>
+    </div>
     ${modeSeg()}
     <p class="hint">${MODE_HINT[S.mode]}</p>
     ${body}
@@ -433,6 +749,7 @@ app.addEventListener("input", e => {
 app.addEventListener("click", e => {
   const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
   const act = el.dataset.act, p = S.people[S.cur];
+  const before = S.screen;
   switch (act) {
     case "add": S.names.push(""); break;
     case "del": S.names.splice(+el.dataset.i, 1); break;
@@ -447,12 +764,13 @@ app.addEventListener("click", e => {
     case "hard": { const t = el.dataset.t; p.hardNo.has(t) ? p.hardNo.delete(t) : (p.hardNo.add(t), p.dislikes.delete(t)); break; }
     case "meh": { const t = el.dataset.t; p.dislikes.has(t) ? p.dislikes.delete(t) : p.dislikes.add(t); break; }
     case "budget": p.budget = el.dataset.v ? +el.dataset.v : null; break;
-    case "go-wc": startWC(); break;
+    case "go-wc": BGM.start(); startWC(); break;
     case "pick": resolve(+el.dataset.i); break;
     case "again": begin(S.people.map(x => x.name)); break;
-    case "reset": S.screen = "setup"; S.demo = false; break;
+    case "reset": BGM.stop(0.6); S.screen = "setup"; S.demo = false; break;
     case "demo": loadDemo(); break;
   }
+  if (S.screen === "result" && before !== "result") { BGM.stop(1.2); if (!S.demo) BGM.chime(); }
   render();
 });
 
@@ -470,7 +788,23 @@ function loadDemo() {
   S.cur = S.people.length; S.demo = true; S.screen = "result";
 }
 
+// 배경 스티커 배치 (화면 가장자리 위주)
+(function decorate() {
+  const spots = [["f-donut", 4, 10, -12], ["f-sushi", 82, 16, 10], ["f-latte", 88, 46, -8], ["f-pizza", 2, 52, 14],
+                 ["f-dumpling", 80, 78, 6], ["f-noodle", 6, 86, -6], ["f-burger", 44, 94, 8]];
+  document.getElementById("decor").innerHTML = spots.map(([id, x, y, r]) =>
+    `<svg class="ic" style="left:calc(${x}% - 32px);top:calc(${y}% - 32px);transform:rotate(${r}deg)"><use href="#${id}"/></svg>`).join("");
+})();
+
+// 스플래시 → 본 화면
 render();
+(function splash() {
+  const el = document.getElementById("splash");
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hide = () => { el.classList.add("hide"); setTimeout(() => el.remove(), 600); };
+  const t = setTimeout(hide, reduce ? 600 : 1900);
+  el.addEventListener("click", () => { clearTimeout(t); hide(); }, { once: true });
+})();
 </script>
 
 </body>
