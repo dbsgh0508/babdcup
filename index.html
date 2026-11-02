@@ -12,6 +12,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="냠픽">
+<script data-goatcounter="https://nyampick.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <title>냠픽 NyamPick</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
@@ -536,6 +537,11 @@ document.addEventListener("visibilitychange", () => {
   if (document.hidden) BGM.ctx.suspend(); else if (BGM.playing) BGM.ctx.resume();
 });
 
+// ── 방문/목표 달성 집계 (배포 버전에만 GoatCounter가 붙음, 없으면 아무 일도 안 함) ──
+function track(path, title) {
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path, title, event: true }); } catch (e) {}
+}
+
 // ── 상태 ─────────────────────────────────────────────────────
 const S = { screen: "setup", names: ["민지", "현우", "서연", "준호"], mode: "평화", people: [], cur: 0, bracket: [], wc: null, demo: false };
 const app = document.getElementById("app");
@@ -770,7 +776,7 @@ app.addEventListener("click", e => {
     case "reset": BGM.stop(0.6); S.screen = "setup"; S.demo = false; break;
     case "demo": loadDemo(); break;
   }
-  if (S.screen === "result" && before !== "result") { BGM.stop(1.2); if (!S.demo) BGM.chime(); }
+  if (S.screen === "result" && before !== "result") { BGM.stop(1.2); if (!S.demo) { BGM.chime(); track("menu-decided", "메뉴 결정 완료"); } }
   render();
 });
 
