@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="친구들이랑 음식 월드컵 하고, 다 같이 납득할 메뉴를 골라주는 냠픽">
+<meta name="theme-color" content="#D2432A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="냠픽">
+<title>냠픽 NyamPick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 폰 한 대를 돌려가며 쓰는 단일 컬럼 앱. 식당 번호표 같은 결과 카드가 마지막에 나온다 */
+:root {
+  --bg: #F1F3EE;
+  --surface: #FFFFFF;
+  --ink: #1C2420;
+  --muted: #5F6A60;
+  --line: #D6DCD2;
+  --accent: #D2432A;      /* 고추장 */
+  --accent-soft: #F7E0DA;
+  --on-accent: #FFFFFF;
+  --yolk: #F2C233;        /* 단무지/계란 노른자 */
+  --on-yolk: #2A2310;
+  --good: #2E7A4D;
+  --display: "Black Han Sans", "Noto Sans KR", system-ui, sans-serif;
+  --body: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131714; --surface: #1C221E; --ink: #EBEFE7; --muted: #9AA595; --line: #2E3730;
+    --accent: #F0684C; --accent-soft: #3A221C; --on-accent: #1A0D09; --yolk: #E6B92E; --on-yolk: #1F1906; --good: #5BBE85;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131714; --surface: #1C221E; --ink: #EBEFE7; --muted: #9AA595; --line: #2E3730;
+  --accent: #F0684C; --accent-soft: #3A221C; --on-accent: #1A0D09; --yolk: #E6B92E; --on-yolk: #1F1906; --good: #5BBE85;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.app { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.brand b { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: .02em; color: var(--accent); }
+.brand span { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+h1 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--muted); margin: 0; }
+p { margin: 0; }
+.lead { color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 10px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 8px; align-items: center; }
+input[type=text] {
+  flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+input[type=text]:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button { font: inherit; cursor: pointer; }
+.btn {
+  border: 0; border-radius: 12px; padding: 14px 18px; font-weight: 700; font-size: 16px;
+  background: var(--accent); color: var(--on-accent); width: 100%;
+}
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 14px; padding: 11px 14px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.icon-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 10px; width: 42px; height: 42px; flex: none; font-size: 18px; }
+.seg { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: 6px; }
+.seg button {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px;
+  padding: 9px 6px; font-size: 14px; font-weight: 500;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.hint { font-size: 13px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 999px; padding: 7px 13px; font-size: 14px;
+}
+.chip[aria-pressed="true"].no { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.chip[aria-pressed="true"].meh { background: var(--accent-soft); color: var(--ink); border-color: var(--accent); }
+.chip:disabled { opacity: .35; cursor: not-allowed; }
+.progress { display: flex; gap: 4px; }
+.progress i { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
+.progress i.on { background: var(--accent); }
+
+/* 핸드오프 */
+.handoff { text-align: center; padding-block: 48px; gap: 16px; align-items: center; }
+.handoff .who { font-family: var(--display); font-size: 48px; line-height: 1.1; color: var(--accent); word-break: keep-all; }
+
+/* 월드컵 */
+.wc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.wc-head .round { font-family: var(--display); font-size: 22px; }
+.wc-head .count { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.duel { display: grid; gap: 10px; }
+.pick {
+  background: var(--surface); color: var(--ink); border: 2px solid var(--line); border-radius: 16px;
+  padding: 26px 18px; display: flex; flex-direction: column; gap: 10px; text-align: left;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.pick:hover { border-color: var(--accent); }
+.pick:active { transform: scale(.98); }
+.pick .name { font-family: var(--display); font-size: 34px; line-height: 1.1; }
+.pick .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; }
+.price { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-left: auto; }
+.vs { text-align: center; font-family: var(--display); color: var(--accent); font-size: 18px; letter-spacing: .1em; }
+
+/* 결과: 번호표 */
+.ticket {
+  background: var(--yolk); color: var(--on-yolk); border-radius: 16px; padding: 22px 20px 18px;
+  display: flex; flex-direction: column; gap: 8px; position: relative;
+}
+.ticket::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 58px;
+  border-top: 2px dashed color-mix(in srgb, var(--on-yolk) 35%, transparent);
+}
+.ticket .no { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; }
+.ticket .name { font-family: var(--display); font-size: 48px; line-height: 1.05; word-break: keep-all; }
+.ticket .reason { font-size: 14px; }
+.ticket .score { font-family: var(--mono); font-weight: 600; font-size: 15px; padding-top: 22px; display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; }
+.ticket .score a { color: var(--on-yolk); font-family: var(--body); font-weight: 700; font-size: 14px; }
+.alt { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+.alt:first-child { border-top: 0; padding-top: 0; }
+.alt .top { display: flex; align-items: baseline; gap: 10px; }
+.alt .rank { font-family: var(--mono); color: var(--muted); font-size: 13px; }
+.alt .name { font-family: var(--display); font-size: 24px; }
+.alt .pts { margin-left: auto; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.bars { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 10px; align-items: center; font-size: 12px; }
+.bars .n { color: inherit; max-width: 6em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars .track { height: 6px; border-radius: 3px; background: color-mix(in srgb, currentColor 18%, transparent); overflow: hidden; }
+.bars .fill { display: block; height: 100%; border-radius: 3px; background: currentColor; }
+.bars .v { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.links { display: flex; gap: 14px; font-size: 13px; }
+.links a { color: var(--accent); font-weight: 700; }
+details summary { cursor: pointer; font-size: 14px; color: var(--muted); }
+details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+.empty { text-align: center; padding: 24px 12px; color: var(--muted); }
+.sample { font-size: 12px; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .pick { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="app" id="app"></div>
+
+<script>
+// ── 데이터 (menus.json v0.1과 동일) ─────────────────────────
+const DATA = {"version": "0.1", "tag_groups": {"종류": ["한식", "중식", "일식", "양식", "분식", "아시안", "패스트푸드"], "재료": ["돼지고기", "소고기", "닭고기", "해산물", "날것", "내장", "채소위주", "유제품"], "맛·특징": ["매운맛", "국물", "튀김", "기름진", "가벼움", "면", "밥", "빵"], "상황": ["술자리", "혼밥", "단체", "냄새강함"]}, "hard_no_options": ["매운맛", "해산물", "날것", "내장", "돼지고기", "소고기", "닭고기", "유제품", "냄새강함"], "menus": [{"name": "김치찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "밥", "혼밥"], "price": 9000}, {"name": "된장찌개", "tags": ["한식", "국물", "밥", "혼밥"], "price": 9000}, {"name": "순두부찌개", "tags": ["한식", "해산물", "국물", "매운맛", "밥", "혼밥"], "price": 9500}, {"name": "부대찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "면", "단체"], "price": 11000}, {"name": "제육볶음", "tags": ["한식", "돼지고기", "매운맛", "밥", "혼밥"], "price": 10000}, {"name": "불고기", "tags": ["한식", "소고기", "밥"], "price": 12000}, {"name": "비빔밥", "tags": ["한식", "채소위주", "밥", "가벼움", "혼밥"], "price": 9500}, {"name": "국밥", "tags": ["한식", "돼지고기", "국물", "밥", "혼밥", "술자리"], "price": 10000}, {"name": "순대국", "tags": ["한식", "돼지고기", "내장", "국물", "밥", "혼밥", "냄새강함"], "price": 10000}, {"name": "설렁탕", "tags": ["한식", "소고기", "국물", "밥", "혼밥"], "price": 11000}, {"name": "갈비탕", "tags": ["한식", "소고기", "국물", "밥"], "price": 14000}, {"name": "감자탕", "tags": ["한식", "돼지고기", "국물", "매운맛", "단체", "술자리"], "price": 13000}, {"name": "삼겹살", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리", "냄새강함"], "price": 17000}, {"name": "소갈비", "tags": ["한식", "소고기", "단체", "술자리"], "price": 30000}, {"name": "닭갈비", "tags": ["한식", "닭고기", "매운맛", "단체"], "price": 14000}, {"name": "찜닭", "tags": ["한식", "닭고기", "면", "단체"], "price": 13000}, {"name": "닭볶음탕", "tags": ["한식", "닭고기", "국물", "매운맛", "단체"], "price": 13000}, {"name": "삼계탕", "tags": ["한식", "닭고기", "국물"], "price": 17000}, {"name": "보쌈", "tags": ["한식", "돼지고기", "단체", "술자리"], "price": 16000}, {"name": "족발", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리"], "price": 17000}, {"name": "곱창", "tags": ["한식", "소고기", "내장", "기름진", "술자리", "냄새강함"], "price": 20000}, {"name": "냉면", "tags": ["한식", "소고기", "면", "국물", "가벼움"], "price": 11000}, {"name": "칼국수", "tags": ["한식", "해산물", "면", "국물", "혼밥"], "price": 9000}, {"name": "해물파전", "tags": ["한식", "해산물", "기름진", "술자리"], "price": 15000}, {"name": "아귀찜", "tags": ["한식", "해산물", "매운맛", "단체"], "price": 20000}, {"name": "생선구이", "tags": ["한식", "해산물", "밥"], "price": 11000}, {"name": "쭈꾸미볶음", "tags": ["한식", "해산물", "매운맛", "밥"], "price": 13000}, {"name": "한정식", "tags": ["한식", "채소위주", "밥", "단체"], "price": 20000}, {"name": "샤브샤브", "tags": ["한식", "소고기", "국물", "채소위주", "가벼움", "단체"], "price": 16000}, {"name": "떡볶이", "tags": ["분식", "매운맛", "단체"], "price": 8000}, {"name": "김밥", "tags": ["분식", "밥", "가벼움", "혼밥"], "price": 5000}, {"name": "라볶이", "tags": ["분식", "매운맛", "면"], "price": 8000}, {"name": "순대", "tags": ["분식", "돼지고기", "내장"], "price": 7000}, {"name": "모듬튀김", "tags": ["분식", "튀김", "기름진"], "price": 6000}, {"name": "쫄면", "tags": ["분식", "면", "매운맛"], "price": 7000}, {"name": "짜장면", "tags": ["중식", "돼지고기", "면", "혼밥"], "price": 8000}, {"name": "짬뽕", "tags": ["중식", "해산물", "면", "국물", "매운맛"], "price": 9500}, {"name": "탕수육", "tags": ["중식", "돼지고기", "튀김", "기름진", "단체", "술자리"], "price": 12000}, {"name": "볶음밥", "tags": ["중식", "밥", "혼밥"], "price": 8500}, {"name": "마라탕", "tags": ["중식", "매운맛", "국물", "면", "혼밥", "냄새강함"], "price": 12000}, {"name": "마라샹궈", "tags": ["중식", "매운맛", "기름진", "단체"], "price": 18000}, {"name": "양꼬치", "tags": ["중식", "기름진", "술자리", "단체", "냄새강함"], "price": 18000}, {"name": "딤섬", "tags": ["중식", "돼지고기", "가벼움"], "price": 15000}, {"name": "초밥", "tags": ["일식", "해산물", "날것", "밥"], "price": 18000}, {"name": "회", "tags": ["일식", "해산물", "날것", "술자리", "단체"], "price": 25000}, {"name": "돈까스", "tags": ["일식", "돼지고기", "튀김", "밥", "혼밥"], "price": 11000}, {"name": "라멘", "tags": ["일식", "돼지고기", "면", "국물", "기름진", "혼밥"], "price": 11000}, {"name": "우동", "tags": ["일식", "면", "국물", "가벼움", "혼밥"], "price": 9000}, {"name": "소바", "tags": ["일식", "면", "가벼움", "혼밥"], "price": 10000}, {"name": "규동", "tags": ["일식", "소고기", "밥", "혼밥"], "price": 10000}, {"name": "일본식카레", "tags": ["일식", "밥", "혼밥"], "price": 10000}, {"name": "텐동", "tags": ["일식", "해산물", "튀김", "밥"], "price": 13000}, {"name": "연어덮밥", "tags": ["일식", "해산물", "날것", "밥", "가벼움"], "price": 14000}, {"name": "파스타", "tags": ["양식", "면"], "price": 15000}, {"name": "크림파스타", "tags": ["양식", "면", "유제품", "기름진"], "price": 16000}, {"name": "피자", "tags": ["양식", "빵", "유제품", "기름진", "단체"], "price": 15000}, {"name": "스테이크", "tags": ["양식", "소고기"], "price": 35000}, {"name": "리조또", "tags": ["양식", "밥", "유제품"], "price": 16000}, {"name": "브런치", "tags": ["양식", "빵", "유제품", "가벼움"], "price": 17000}, {"name": "샐러드", "tags": ["양식", "채소위주", "가벼움", "혼밥"], "price": 12000}, {"name": "샌드위치", "tags": ["양식", "빵", "가벼움", "혼밥"], "price": 9000}, {"name": "타코", "tags": ["양식", "소고기", "매운맛"], "price": 14000}, {"name": "햄버거", "tags": ["패스트푸드", "소고기", "빵", "튀김", "혼밥"], "price": 9000}, {"name": "치킨", "tags": ["패스트푸드", "닭고기", "튀김", "기름진", "단체", "술자리"], "price": 13000}, {"name": "쌀국수", "tags": ["아시안", "소고기", "면", "국물", "가벼움", "혼밥"], "price": 11000}, {"name": "팟타이", "tags": ["아시안", "해산물", "면"], "price": 13000}, {"name": "분짜", "tags": ["아시안", "돼지고기", "면", "가벼움"], "price": 13000}, {"name": "인도커리", "tags": ["아시안", "닭고기", "매운맛", "빵", "유제품", "냄새강함"], "price": 15000}, {"name": "똠얌꿍", "tags": ["아시안", "해산물", "국물", "매운맛", "냄새강함"], "price": 15000}, {"name": "반미", "tags": ["아시안", "돼지고기", "빵", "혼밥"], "price": 8000}, {"name": "포케", "tags": ["아시안", "해산물", "날것", "채소위주", "밥", "가벼움"], "price": 13000}]};
+const MENUS = DATA.menus.map(m => ({ name: m.name, tags: m.tags, price: m.price }));
+const M = Object.fromEntries(MENUS.map(m => [m.name, m]));
+const CUISINES = DATA.tag_groups["종류"];
+const HARD_OPTS = DATA.hard_no_options;
+const DISLIKE_OPTS = ["매운맛", "국물", "튀김", "기름진", "해산물", "날것", "내장", "채소위주", "유제품", "냄새강함", "중식", "일식", "양식", "분식", "아시안"];
+const BUDGETS = [[10000, "1만원 이하"], [15000, "1.5만원 이하"], [20000, "2만원 이하"], [null, "상관없음"]];
+
+// ── 점수 알고리즘 (meal_score.py v0.1 포팅) ─────────────────
+const ROUND_SCORE = { 1: 1.0, 2: 0.85, 4: 0.7, 8: 0.55, 16: 0.4, 32: 0.25 };
+const DISLIKE_PENALTY = 0.25, BUDGET_PENALTY_CAP = 0.4, TAG_SHRINK = 0.7;
+const LIKE_TH = 0.7, UNHAPPY_TH = 0.35, CONF_W = 0.15, MIN_SHOW = 50;
+const MODES = { "평화": { alpha: 0.4, price_w: 0 }, "만족도": { alpha: 0.8, price_w: 0 }, "가성비": { alpha: 0.6, price_w: 0.25 } };
+const MODE_HINT = { "평화": "한 명이라도 불만인 메뉴는 뒤로", "만족도": "다 같이 제일 맛있게", "가성비": "싸고 무난하게" };
+const CONTEXT_TAGS = new Set(["술자리", "혼밥", "단체", "밥", "면", "빵"]);
+
+const avg = a => a.reduce((x, y) => x + y, 0) / a.length;
+const clamp01 = x => Math.max(0, Math.min(1, x));
+
+function tagAffinity(p) {
+  const s = {}, c = {};
+  for (const [name, v] of Object.entries(p.pref)) {
+    for (const t of M[name].tags) {
+      if (CONTEXT_TAGS.has(t)) continue;
+      s[t] = (s[t] || 0) + v; c[t] = (c[t] || 0) + 1;
+    }
+  }
+  const a = {}; for (const t in s) a[t] = s[t] / c[t]; return a;
+}
+function personScore(p, m, aff) {
+  if (m.tags.some(t => p.hardNo.has(t))) return null;
+  let base;
+  if (m.name in p.pref) base = p.pref[m.name];
+  else {
+    const v = m.tags.filter(t => !CONTEXT_TAGS.has(t) && t in aff).map(t => aff[t]);
+    base = v.length ? 0.5 + TAG_SHRINK * (avg(v) - 0.5) : 0.5;
+  }
+  base -= DISLIKE_PENALTY * m.tags.filter(t => p.dislikes.has(t)).length;
+  if (p.budget && m.price > p.budget) base -= Math.min(BUDGET_PENALTY_CAP, (m.price - p.budget) / p.budget);
+  return clamp01(base);
+}
+function recommend(people, mode, top = 3) {
+  const cfg = MODES[mode];
+  const affs = people.map(tagAffinity);
+  const prices = MENUS.map(m => m.price), pmin = Math.min(...prices), pmax = Math.max(...prices);
+  const ranked = [], excluded = [];
+  for (const m of MENUS) {
+    const scores = people.map((p, i) => personScore(p, m, affs[i]));
+    const blockers = people.filter((p, i) => scores[i] === null).map(p => p.name);
+    if (blockers.length) { excluded.push({ name: m.name, blockers }); continue; }
+    const mean = avg(scores), low = Math.min(...scores);
+    let g = cfg.alpha * mean + (1 - cfg.alpha) * low;
+    if (cfg.price_w) {
+      const cheap = pmax > pmin ? 1 - (m.price - pmin) / (pmax - pmin) : 1;
+      g = (1 - cfg.price_w) * g + cfg.price_w * cheap;
+    }
+    const direct = people.filter(p => m.name in p.pref).length;
+    g *= (1 - CONF_W) + CONF_W * direct / people.length;
+
+    const likers = scores.filter(s => s >= LIKE_TH).length;
+    const unhappy = people.filter((p, i) => scores[i] < UNHAPPY_TH).map(p => p.name);
+    let reason = direct ? `${likers}명 선호` : "취향 기반 추정";
+    reason += unhappy.length ? `, 불만 ${unhappy.length}명(${unhappy.join(", ")})` : ", 불만 0명";
+    const notes = people.filter(p => m.tags.some(t => p.dislikes.has(t)))
+      .map(p => `${p.name} ${m.tags.filter(t => p.dislikes.has(t)).join("/")} 비선호`);
+    if (notes.length) reason += ` (${notes.join("; ")})`;
+    if (people.every(p => !p.budget || m.price <= p.budget)) reason += ", 전원 예산 OK";
+
+    const score = Math.round(g * 100);
+    if (score >= MIN_SHOW) ranked.push({ score, name: m.name, reason, scores, price: m.price });
+  }
+  ranked.sort((a, b) => b.score - a.score || a.price - b.price);
+  return { top: ranked.slice(0, top), excluded };
+}
+
+// ── 월드컵 대진: 종류별로 골고루 16개 ───────────────────────
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function makeBracket() {
+  const pools = CUISINES.map(c => shuffle(MENUS.filter(m => m.tags[0] === c).map(m => m.name)));
+  const out = [];
+  for (let k = 0; out.length < 16; k++) {
+    for (const pool of shuffle(pools)) { if (pool[k] && out.length < 16) out.push(pool[k]); }
+    if (k > 20) break;
+  }
+  return shuffle(out);
+}
+const ROUND_LABEL = { 16: "16강", 8: "8강", 4: "준결승", 2: "결승" };
+
+// ── 상태 ─────────────────────────────────────────────────────
+const S = { screen: "setup", names: ["민지", "현우", "서연", "준호"], mode: "평화", people: [], cur: 0, bracket: [], wc: null, demo: false };
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const won = n => n.toLocaleString("ko-KR") + "원";
+const brand = `<div class="brand"><b>냠픽</b><span>우리 뭐 먹지?</span></div>`;
+
+function render() {
+  const fn = { setup: viewSetup, handoff: viewHandoff, prefs: viewPrefs, wc: viewWC, result: viewResult }[S.screen];
+  app.innerHTML = brand + fn();
+  window.scrollTo(0, 0);
+}
+
+// 1) 설정
+function viewSetup() {
+  const rows = S.names.map((n, i) => `
+    <div class="row">
+      <input type="text" id="name-${i}" data-name="${i}" value="${esc(n)}" placeholder="이름" maxlength="10" aria-label="${i + 1}번째 사람 이름">
+      <button class="icon-btn" data-act="del" data-i="${i}" aria-label="삭제" ${S.names.length <= 2 ? "disabled" : ""}>×</button>
+    </div>`).join("");
+  return `
+    <div class="stack">
+      <h1>오늘 같이 먹는 사람</h1>
+      <p class="lead">폰 하나로 한 명씩 돌려가며 음식 월드컵을 해요. 다 끝나면 모두가 납득할 메뉴를 골라드려요.</p>
+    </div>
+    <div class="panel">
+      <h2>멤버 (${S.names.length}명)</h2>
+      <div class="stack">${rows}</div>
+      <button class="btn ghost" data-act="add" ${S.names.length >= 8 ? "disabled" : ""}>+ 사람 추가</button>
+    </div>
+    <div class="panel">
+      <h2>결정 방식</h2>
+      ${modeSeg()}
+      <p class="hint">${MODE_HINT[S.mode]}</p>
+    </div>
+    <button class="btn" data-act="start">시작하기</button>
+    <button class="btn ghost" data-act="demo">예시 결과 먼저 보기</button>
+    <p class="sample">이름 칸은 예시예요. 실제 멤버로 바꿔주세요.</p>`;
+}
+function modeSeg() {
+  return `<div class="seg" style="--n:3">${Object.keys(MODES).map(m =>
+    `<button data-act="mode" data-mode="${m}" aria-pressed="${S.mode === m}">${m}</button>`).join("")}</div>`;
+}
+
+// 2) 폰 넘기기
+function viewHandoff() {
+  const p = S.people[S.cur];
+  return `
+    ${progress()}
+    <div class="panel handoff">
+      <p class="lead">폰을 넘겨주세요</p>
+      <div class="who">${esc(p.name)}</div>
+      <p class="hint">${S.cur + 1} / ${S.people.length}번째 차례 · 다른 사람 선택은 안 보여요</p>
+    </div>
+    <button class="btn" data-act="go-prefs">제가 ${esc(p.name)}이에요</button>`;
+}
+function progress() {
+  return `<div class="progress" aria-label="진행 상황">${S.people.map((_, i) => `<i class="${i < S.cur ? "on" : ""}"></i>`).join("")}</div>`;
+}
+
+// 3) 못 먹는 것 / 싫은 것 / 예산
+function viewPrefs() {
+  const p = S.people[S.cur];
+  const hard = HARD_OPTS.map(t => `<button class="chip no" data-act="hard" data-t="${t}" aria-pressed="${p.hardNo.has(t)}">${t}</button>`).join("");
+  const meh = DISLIKE_OPTS.map(t => {
+    const locked = p.hardNo.has(t);
+    return `<button class="chip meh" data-act="meh" data-t="${t}" aria-pressed="${p.dislikes.has(t)}" ${locked ? "disabled" : ""}>${t}</button>`;
+  }).join("");
+  const bud = BUDGETS.map(([v, l]) => `<button data-act="budget" data-v="${v ?? ""}" aria-pressed="${p.budget === v}">${l}</button>`).join("");
+  return `
+    ${progress()}
+    <h1>${esc(p.name)}님, 먼저 이것만요</h1>
+    <div class="panel">
+      <h2>절대 못 먹어요</h2>
+      <p class="hint">여기 고른 게 들어간 메뉴는 아예 추천 안 해요</p>
+      <div class="chips">${hard}</div>
+    </div>
+    <div class="panel">
+      <h2>웬만하면 피하고 싶어요</h2>
+      <div class="chips">${meh}</div>
+    </div>
+    <div class="panel">
+      <h2>1인 예산</h2>
+      <div class="seg" style="--n:2">${bud}</div>
+    </div>
+    <button class="btn" data-act="go-wc">음식 월드컵 시작</button>`;
+}
+
+// 4) 월드컵
+function startWC() {
+  S.wc = { round: S.bracket.slice(), next: [], i: 0, size: 16, ranks: {}, done: 0 };
+  autoAdvance();
+}
+function blocked(name) { return M[name].tags.some(t => S.people[S.cur].hardNo.has(t)); }
+function resolve(winIdx) {
+  const w = S.wc, a = w.round[w.i], b = w.round[w.i + 1];
+  const win = winIdx === 0 ? a : b, lose = winIdx === 0 ? b : a;
+  w.ranks[lose] = w.size; w.next.push(win); w.i += 2; w.done++;
+  if (w.i >= w.round.length) {
+    if (w.next.length === 1) { w.ranks[w.next[0]] = 1; return finishPerson(); }
+    w.round = w.next; w.next = []; w.i = 0; w.size = w.round.length;
+  }
+  return autoAdvance();
+}
+function autoAdvance() {
+  // 못 먹는 메뉴가 붙은 대결은 자동 처리
+  const w = S.wc, a = w.round[w.i], b = w.round[w.i + 1];
+  const ba = blocked(a), bb = blocked(b);
+  if (ba && !bb) return resolve(1);
+  if (bb && !ba) return resolve(0);
+  if (ba && bb) return resolve(0);
+  S.screen = "wc";
+}
+function finishPerson() {
+  const p = S.people[S.cur];
+  p.pref = Object.fromEntries(Object.entries(S.wc.ranks).map(([n, r]) => [n, ROUND_SCORE[r] ?? 0.2]));
+  S.cur++;
+  S.screen = S.cur < S.people.length ? "handoff" : "result";
+}
+function card(name, idx) {
+  const m = M[name];
+  const tags = m.tags.filter(t => !CONTEXT_TAGS.has(t)).slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("");
+  return `<button class="pick" data-act="pick" data-i="${idx}"><span class="name">${esc(name)}</span><span class="meta">${tags}<span class="price">${won(m.price)}</span></span></button>`;
+}
+function viewWC() {
+  const w = S.wc, p = S.people[S.cur];
+  return `
+    ${progress()}
+    <div class="wc-head"><span class="round">${ROUND_LABEL[w.size]}</span><span class="count">${esc(p.name)} · ${w.i / 2 + 1}/${w.round.length / 2}</span></div>
+    <div class="duel">${card(w.round[w.i], 0)}<div class="vs">VS</div>${card(w.round[w.i + 1], 1)}</div>
+    <p class="hint">더 끌리는 쪽을 눌러주세요</p>`;
+}
+
+// 5) 결과
+function viewResult() {
+  const { top, excluded } = recommend(S.people, S.mode);
+  const bars = r => `<div class="bars">${S.people.map((p, i) => {
+    const v = Math.round(r.scores[i] * 100);
+    return `<span class="n">${esc(p.name)}</span><span class="track"><span class="fill" style="width:${v}%"></span></span><span class="v">${v}</span>`;
+  }).join("")}</div>`;
+  const find = n => `<div class="links"><a href="https://map.naver.com/p/search/${encodeURIComponent(n)}" target="_blank" rel="noopener">네이버지도에서 찾기</a><a href="https://map.kakao.com/?q=${encodeURIComponent(n)}" target="_blank" rel="noopener">카카오맵</a></div>`;
+  let body;
+  if (!top.length) {
+    body = `<div class="panel empty">모두가 무난한 메뉴를 못 찾았어요.<br>결정 방식을 '만족도'로 바꿔보세요.</div>`;
+  } else {
+    const [first, ...rest] = top;
+    body = `
+      <div class="ticket">
+        <span class="no">오늘의 메뉴 · No.1</span>
+        <span class="name">${esc(first.name)}</span>
+        <span class="reason">${esc(first.reason)}</span>
+        ${bars(first)}
+        <span class="score"><span>${first.score}점</span><a href="https://map.naver.com/p/search/${encodeURIComponent(first.name)}" target="_blank" rel="noopener">근처 식당 찾기 →</a></span>
+      </div>
+      ${rest.length ? `<div class="panel">${rest.map((r, i) => `
+        <div class="alt">
+          <div class="top"><span class="rank">${i + 2}위</span><span class="name">${esc(r.name)}</span><span class="pts">${r.score}점</span></div>
+          <p class="hint">${esc(r.reason)}</p>
+          ${bars(r)}
+          ${find(r.name)}
+        </div>`).join("")}</div>` : `<p class="hint">이 방식에서 추천할 만한 메뉴는 이것 하나예요.</p>`}`;
+  }
+  const byPerson = {};
+  for (const e of excluded) for (const b of e.blockers) (byPerson[b] ||= []).push(e.name);
+  const exList = Object.entries(byPerson).map(([n, list]) => `<li>${esc(n)} 못 먹음: ${list.map(esc).join(", ")}</li>`).join("");
+  return `
+    <h1>${S.demo ? "예시: PPT의 A~D 네 명" : "우리 오늘은 이거"}</h1>
+    ${modeSeg()}
+    <p class="hint">${MODE_HINT[S.mode]}</p>
+    ${body}
+    ${exList ? `<details><summary>제외된 메뉴 ${excluded.length}개</summary><ul>${exList}</ul></details>` : ""}
+    <button class="btn" data-act="again">같은 멤버로 다시</button>
+    <button class="btn ghost" data-act="reset">처음으로</button>`;
+}
+
+// ── 이벤트 ───────────────────────────────────────────────────
+function person(name) { return { name, pref: {}, hardNo: new Set(), dislikes: new Set(), budget: null }; }
+function begin(names) {
+  S.people = names.map(person); S.cur = 0; S.bracket = makeBracket(); S.demo = false; S.screen = "handoff";
+}
+app.addEventListener("input", e => {
+  const i = e.target.dataset.name; if (i !== undefined) S.names[+i] = e.target.value;
+});
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const act = el.dataset.act, p = S.people[S.cur];
+  switch (act) {
+    case "add": S.names.push(""); break;
+    case "del": S.names.splice(+el.dataset.i, 1); break;
+    case "mode": S.mode = el.dataset.mode; break;
+    case "start": {
+      const seen = {};
+      const names = S.names.map(n => n.trim()).filter(Boolean).map(n => (seen[n] = (seen[n] || 0) + 1) > 1 ? `${n}${seen[n]}` : n);
+      if (names.length < 2) return;
+      S.names = names; begin(names); break;
+    }
+    case "go-prefs": S.screen = "prefs"; break;
+    case "hard": { const t = el.dataset.t; p.hardNo.has(t) ? p.hardNo.delete(t) : (p.hardNo.add(t), p.dislikes.delete(t)); break; }
+    case "meh": { const t = el.dataset.t; p.dislikes.has(t) ? p.dislikes.delete(t) : p.dislikes.add(t); break; }
+    case "budget": p.budget = el.dataset.v ? +el.dataset.v : null; break;
+    case "go-wc": startWC(); break;
+    case "pick": resolve(+el.dataset.i); break;
+    case "again": begin(S.people.map(x => x.name)); break;
+    case "reset": S.screen = "setup"; S.demo = false; break;
+    case "demo": loadDemo(); break;
+  }
+  render();
+});
+
+// PPT 예시 4명 (meal_score.py 데모와 같은 입력)
+function loadDemo() {
+  const BR = ["돈까스", "초밥", "라멘", "국밥", "삼겹살", "파스타", "떡볶이", "치킨", "김밥", "짜장면", "마라탕", "샐러드", "피자", "쌀국수", "제육볶음", "회"];
+  const wc = (c, f, semi, q) => { const r = Object.fromEntries(BR.map(m => [m, 16])); q.forEach(m => r[m] = 8); semi.forEach(m => r[m] = 4); r[f] = 2; r[c] = 1; return Object.fromEntries(Object.entries(r).map(([n, v]) => [n, ROUND_SCORE[v]])); };
+  const mk = (name, pref, o = {}) => ({ name, pref, hardNo: new Set(o.hard || []), dislikes: new Set(o.meh || []), budget: o.budget ?? null });
+  S.people = [
+    mk("A", wc("초밥", "돈까스", ["라멘", "회"], ["쌀국수", "파스타", "짜장면", "피자"]), { hard: ["매운맛"] }),
+    mk("B", wc("국밥", "삼겹살", ["돈까스", "제육볶음"], ["치킨", "짜장면", "김밥", "라멘"]), { meh: ["채소위주"] }),
+    mk("C", wc("파스타", "돈까스", ["피자", "샐러드"], ["초밥", "쌀국수", "치킨", "김밥"]), { meh: ["국물"] }),
+    mk("D", wc("떡볶이", "치킨", ["돈까스", "김밥"], ["짜장면", "제육볶음", "마라탕", "피자"]), { budget: 13000 }),
+  ];
+  S.cur = S.people.length; S.demo = true; S.screen = "result";
+}
+
+render();
+</script>
+
+</body>
+</html>
