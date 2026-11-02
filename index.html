@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="친구들이랑 음식 월드컵 하고, 다 같이 납득할 메뉴를 골라주는 냠픽">
+<meta name="description" content="친구들이랑 밥 월드컵 하고, 다 같이 납득할 메뉴를 골라주는 밥드컵">
 <meta name="theme-color" content="#FFF6F4">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="냠픽">
+<meta name="apple-mobile-web-app-title" content="밥드컵">
 <script data-goatcounter="https://nyampick.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<title>냠픽 NyamPick</title>
+<title>밥드컵</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
@@ -78,15 +78,15 @@ body {
   transition: opacity .5s ease, visibility .5s;
 }
 #splash.hide { opacity: 0; visibility: hidden; }
-.sp-ring { position: relative; width: 240px; height: 240px; display: grid; place-items: center; }
+.sp-ring { position: relative; width: 280px; height: 280px; display: grid; place-items: center; }
 .sp-ring .ic { position: absolute; width: 58px; height: 58px; animation: pop .55s cubic-bezier(.2,1.6,.4,1) both; }
-.sp-ring .ic:nth-child(1) { top: 2px;  left: 91px;  animation-delay: .05s; }
-.sp-ring .ic:nth-child(2) { top: 44px; left: 172px; animation-delay: .15s; }
-.sp-ring .ic:nth-child(3) { top: 136px; left: 172px; animation-delay: .25s; }
-.sp-ring .ic:nth-child(4) { top: 178px; left: 91px; animation-delay: .35s; }
-.sp-ring .ic:nth-child(5) { top: 136px; left: 10px; animation-delay: .45s; }
-.sp-ring .ic:nth-child(6) { top: 44px; left: 10px;  animation-delay: .55s; }
-.sp-logo { font-family: var(--display); font-size: 64px; line-height: 1; color: var(--brand); animation: rise .7s .2s cubic-bezier(.2,1.4,.4,1) both; }
+.sp-ring .ic:nth-child(1) { top: 0;     left: 111px;  animation-delay: .05s; }
+.sp-ring .ic:nth-child(2) { top: 56px;  left: 207px; animation-delay: .15s; }
+.sp-ring .ic:nth-child(3) { top: 166px; left: 207px; animation-delay: .25s; }
+.sp-ring .ic:nth-child(4) { top: 222px; left: 111px; animation-delay: .35s; }
+.sp-ring .ic:nth-child(5) { top: 166px; left: 15px; animation-delay: .45s; }
+.sp-ring .ic:nth-child(6) { top: 56px;  left: 15px;  animation-delay: .55s; }
+.sp-logo { font-family: var(--display); font-size: 52px; line-height: 1; color: var(--brand); animation: rise .7s .2s cubic-bezier(.2,1.4,.4,1) both; }
 .sp-tag { color: var(--muted); font-size: 15px; letter-spacing: .04em; animation: rise .7s .35s ease both; }
 .sp-dots { display: flex; gap: 6px; margin-top: 18px; }
 .sp-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1s infinite; }
@@ -228,6 +228,16 @@ button { font: inherit; cursor: pointer; }
 .bars .v { font-variant-numeric: tabular-nums; }
 .links { display: flex; gap: 14px; font-size: 13px; }
 .links a { color: var(--accent); font-weight: 700; }
+.back {
+  flex: none; align-self: center; height: 40px; padding: 0 14px 0 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--brand);
+  font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 2px;
+}
+.back svg { width: 18px; height: 18px; }
+.brand.has-back b { font-size: 26px; }
+.area { display: flex; flex-direction: column; gap: 8px; }
+.area .row input { background: var(--surface); }
+.kakao { display: inline-flex; align-items: center; gap: 6px; }
 details summary { cursor: pointer; font-size: 14px; color: var(--muted); }
 details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
 .empty { text-align: center; padding: 24px 12px; color: var(--muted); }
@@ -308,6 +318,7 @@ details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--
       <path d="M26 41 Q30 37 30 42 Q30 37 34 41 Q30 47 30 47 Q30 47 26 41 Z" fill="#FFFFFF"/>
       <path d="M24 16 Q22 11 25 7 M33 16 Q31 11 34 7" fill="none" stroke="#B6A8B4" stroke-width="2" stroke-linecap="round"/>
     </symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-note" viewBox="0 0 24 24">
       <path d="M9 18 V5 L19 3 V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
       <circle cx="6.5" cy="18" r="2.6" fill="currentColor"/><circle cx="16.5" cy="16" r="2.6" fill="currentColor"/>
@@ -316,7 +327,7 @@ details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--
   </defs>
 </svg>
 
-<div id="splash" role="status" aria-label="냠픽을 여는 중">
+<div id="splash" role="status" aria-label="밥드컵을 여는 중">
   <div class="sp-ring">
     <svg class="ic"><use href="#f-bowl"/></svg>
     <svg class="ic"><use href="#f-sushi"/></svg>
@@ -324,9 +335,9 @@ details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--
     <svg class="ic"><use href="#f-donut"/></svg>
     <svg class="ic"><use href="#f-burger"/></svg>
     <svg class="ic"><use href="#f-dumpling"/></svg>
-    <div><div class="sp-logo">냠픽</div></div>
+    <div><div class="sp-logo">밥드컵</div></div>
   </div>
-  <div class="sp-tag">우리 뭐 먹지? 다 같이 고르는 메뉴</div>
+  <div class="sp-tag">밥 월드컵으로 다 같이 고르는 메뉴</div>
   <div class="sp-dots" aria-hidden="true"><i></i><i></i><i></i></div>
 </div>
 
@@ -336,7 +347,7 @@ details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--
 
 <script>
 // ── 데이터 (menus.json v0.1과 동일) ─────────────────────────
-const DATA = {"version": "0.1", "tag_groups": {"종류": ["한식", "중식", "일식", "양식", "분식", "아시안", "패스트푸드"], "재료": ["돼지고기", "소고기", "닭고기", "해산물", "날것", "내장", "채소위주", "유제품"], "맛·특징": ["매운맛", "국물", "튀김", "기름진", "가벼움", "면", "밥", "빵"], "상황": ["술자리", "혼밥", "단체", "냄새강함"]}, "hard_no_options": ["매운맛", "해산물", "날것", "내장", "돼지고기", "소고기", "닭고기", "유제품", "냄새강함"], "menus": [{"name": "김치찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "밥", "혼밥"], "price": 9000}, {"name": "된장찌개", "tags": ["한식", "국물", "밥", "혼밥"], "price": 9000}, {"name": "순두부찌개", "tags": ["한식", "해산물", "국물", "매운맛", "밥", "혼밥"], "price": 9500}, {"name": "부대찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "면", "단체"], "price": 11000}, {"name": "제육볶음", "tags": ["한식", "돼지고기", "매운맛", "밥", "혼밥"], "price": 10000}, {"name": "불고기", "tags": ["한식", "소고기", "밥"], "price": 12000}, {"name": "비빔밥", "tags": ["한식", "채소위주", "밥", "가벼움", "혼밥"], "price": 9500}, {"name": "국밥", "tags": ["한식", "돼지고기", "국물", "밥", "혼밥", "술자리"], "price": 10000}, {"name": "순대국", "tags": ["한식", "돼지고기", "내장", "국물", "밥", "혼밥", "냄새강함"], "price": 10000}, {"name": "설렁탕", "tags": ["한식", "소고기", "국물", "밥", "혼밥"], "price": 11000}, {"name": "갈비탕", "tags": ["한식", "소고기", "국물", "밥"], "price": 14000}, {"name": "감자탕", "tags": ["한식", "돼지고기", "국물", "매운맛", "단체", "술자리"], "price": 13000}, {"name": "삼겹살", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리", "냄새강함"], "price": 17000}, {"name": "소갈비", "tags": ["한식", "소고기", "단체", "술자리"], "price": 30000}, {"name": "닭갈비", "tags": ["한식", "닭고기", "매운맛", "단체"], "price": 14000}, {"name": "찜닭", "tags": ["한식", "닭고기", "면", "단체"], "price": 13000}, {"name": "닭볶음탕", "tags": ["한식", "닭고기", "국물", "매운맛", "단체"], "price": 13000}, {"name": "삼계탕", "tags": ["한식", "닭고기", "국물"], "price": 17000}, {"name": "보쌈", "tags": ["한식", "돼지고기", "단체", "술자리"], "price": 16000}, {"name": "족발", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리"], "price": 17000}, {"name": "곱창", "tags": ["한식", "소고기", "내장", "기름진", "술자리", "냄새강함"], "price": 20000}, {"name": "냉면", "tags": ["한식", "소고기", "면", "국물", "가벼움"], "price": 11000}, {"name": "칼국수", "tags": ["한식", "해산물", "면", "국물", "혼밥"], "price": 9000}, {"name": "해물파전", "tags": ["한식", "해산물", "기름진", "술자리"], "price": 15000}, {"name": "아귀찜", "tags": ["한식", "해산물", "매운맛", "단체"], "price": 20000}, {"name": "생선구이", "tags": ["한식", "해산물", "밥"], "price": 11000}, {"name": "쭈꾸미볶음", "tags": ["한식", "해산물", "매운맛", "밥"], "price": 13000}, {"name": "한정식", "tags": ["한식", "채소위주", "밥", "단체"], "price": 20000}, {"name": "샤브샤브", "tags": ["한식", "소고기", "국물", "채소위주", "가벼움", "단체"], "price": 16000}, {"name": "떡볶이", "tags": ["분식", "매운맛", "단체"], "price": 8000}, {"name": "김밥", "tags": ["분식", "밥", "가벼움", "혼밥"], "price": 5000}, {"name": "라볶이", "tags": ["분식", "매운맛", "면"], "price": 8000}, {"name": "순대", "tags": ["분식", "돼지고기", "내장"], "price": 7000}, {"name": "모듬튀김", "tags": ["분식", "튀김", "기름진"], "price": 6000}, {"name": "쫄면", "tags": ["분식", "면", "매운맛"], "price": 7000}, {"name": "짜장면", "tags": ["중식", "돼지고기", "면", "혼밥"], "price": 8000}, {"name": "짬뽕", "tags": ["중식", "해산물", "면", "국물", "매운맛"], "price": 9500}, {"name": "탕수육", "tags": ["중식", "돼지고기", "튀김", "기름진", "단체", "술자리"], "price": 12000}, {"name": "볶음밥", "tags": ["중식", "밥", "혼밥"], "price": 8500}, {"name": "마라탕", "tags": ["중식", "매운맛", "국물", "면", "혼밥", "냄새강함"], "price": 12000}, {"name": "마라샹궈", "tags": ["중식", "매운맛", "기름진", "단체"], "price": 18000}, {"name": "양꼬치", "tags": ["중식", "기름진", "술자리", "단체", "냄새강함"], "price": 18000}, {"name": "딤섬", "tags": ["중식", "돼지고기", "가벼움"], "price": 15000}, {"name": "초밥", "tags": ["일식", "해산물", "날것", "밥"], "price": 18000}, {"name": "회", "tags": ["일식", "해산물", "날것", "술자리", "단체"], "price": 25000}, {"name": "돈까스", "tags": ["일식", "돼지고기", "튀김", "밥", "혼밥"], "price": 11000}, {"name": "라멘", "tags": ["일식", "돼지고기", "면", "국물", "기름진", "혼밥"], "price": 11000}, {"name": "우동", "tags": ["일식", "면", "국물", "가벼움", "혼밥"], "price": 9000}, {"name": "소바", "tags": ["일식", "면", "가벼움", "혼밥"], "price": 10000}, {"name": "규동", "tags": ["일식", "소고기", "밥", "혼밥"], "price": 10000}, {"name": "일본식카레", "tags": ["일식", "밥", "혼밥"], "price": 10000}, {"name": "텐동", "tags": ["일식", "해산물", "튀김", "밥"], "price": 13000}, {"name": "연어덮밥", "tags": ["일식", "해산물", "날것", "밥", "가벼움"], "price": 14000}, {"name": "파스타", "tags": ["양식", "면"], "price": 15000}, {"name": "크림파스타", "tags": ["양식", "면", "유제품", "기름진"], "price": 16000}, {"name": "피자", "tags": ["양식", "빵", "유제품", "기름진", "단체"], "price": 15000}, {"name": "스테이크", "tags": ["양식", "소고기"], "price": 35000}, {"name": "리조또", "tags": ["양식", "밥", "유제품"], "price": 16000}, {"name": "브런치", "tags": ["양식", "빵", "유제품", "가벼움"], "price": 17000}, {"name": "샐러드", "tags": ["양식", "채소위주", "가벼움", "혼밥"], "price": 12000}, {"name": "샌드위치", "tags": ["양식", "빵", "가벼움", "혼밥"], "price": 9000}, {"name": "타코", "tags": ["양식", "소고기", "매운맛"], "price": 14000}, {"name": "햄버거", "tags": ["패스트푸드", "소고기", "빵", "튀김", "혼밥"], "price": 9000}, {"name": "치킨", "tags": ["패스트푸드", "닭고기", "튀김", "기름진", "단체", "술자리"], "price": 13000}, {"name": "쌀국수", "tags": ["아시안", "소고기", "면", "국물", "가벼움", "혼밥"], "price": 11000}, {"name": "팟타이", "tags": ["아시안", "해산물", "면"], "price": 13000}, {"name": "분짜", "tags": ["아시안", "돼지고기", "면", "가벼움"], "price": 13000}, {"name": "인도커리", "tags": ["아시안", "닭고기", "매운맛", "빵", "유제품", "냄새강함"], "price": 15000}, {"name": "똠얌꿍", "tags": ["아시안", "해산물", "국물", "매운맛", "냄새강함"], "price": 15000}, {"name": "반미", "tags": ["아시안", "돼지고기", "빵", "혼밥"], "price": 8000}, {"name": "포케", "tags": ["아시안", "해산물", "날것", "채소위주", "밥", "가벼움"], "price": 13000}]};
+const DATA = {"version": "0.2", "tag_groups": {"종류": ["한식", "중식", "일식", "양식", "분식", "아시안", "패스트푸드"], "재료": ["돼지고기", "소고기", "닭고기", "해산물", "날것", "내장", "채소위주", "유제품"], "맛·특징": ["매운맛", "국물", "튀김", "기름진", "가벼움", "면", "밥", "빵"], "상황": ["술자리", "혼밥", "단체", "냄새강함"]}, "hard_no_options": ["매운맛", "해산물", "날것", "내장", "돼지고기", "소고기", "닭고기", "유제품", "냄새강함"], "menus": [{"name": "김치찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "밥", "혼밥"], "price": 9000}, {"name": "된장찌개", "tags": ["한식", "국물", "밥", "혼밥"], "price": 9000}, {"name": "순두부찌개", "tags": ["한식", "해산물", "국물", "매운맛", "밥", "혼밥"], "price": 9500}, {"name": "부대찌개", "tags": ["한식", "돼지고기", "국물", "매운맛", "면", "단체"], "price": 11000}, {"name": "제육볶음", "tags": ["한식", "돼지고기", "매운맛", "밥", "혼밥"], "price": 10000}, {"name": "불고기", "tags": ["한식", "소고기", "밥"], "price": 12000}, {"name": "비빔밥", "tags": ["한식", "채소위주", "밥", "가벼움", "혼밥"], "price": 9500}, {"name": "국밥", "tags": ["한식", "돼지고기", "국물", "밥", "혼밥", "술자리"], "price": 10000}, {"name": "순대국", "tags": ["한식", "돼지고기", "내장", "국물", "밥", "혼밥", "냄새강함"], "price": 10000}, {"name": "설렁탕", "tags": ["한식", "소고기", "국물", "밥", "혼밥"], "price": 11000}, {"name": "갈비탕", "tags": ["한식", "소고기", "국물", "밥"], "price": 14000}, {"name": "감자탕", "tags": ["한식", "돼지고기", "국물", "매운맛", "단체", "술자리"], "price": 13000}, {"name": "삼겹살", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리", "냄새강함"], "price": 17000}, {"name": "소갈비", "tags": ["한식", "소고기", "단체", "술자리"], "price": 30000}, {"name": "닭갈비", "tags": ["한식", "닭고기", "매운맛", "단체"], "price": 14000}, {"name": "찜닭", "tags": ["한식", "닭고기", "면", "단체"], "price": 13000}, {"name": "닭볶음탕", "tags": ["한식", "닭고기", "국물", "매운맛", "단체"], "price": 13000}, {"name": "삼계탕", "tags": ["한식", "닭고기", "국물"], "price": 17000}, {"name": "보쌈", "tags": ["한식", "돼지고기", "단체", "술자리"], "price": 16000}, {"name": "족발", "tags": ["한식", "돼지고기", "기름진", "단체", "술자리"], "price": 17000}, {"name": "곱창", "tags": ["한식", "소고기", "내장", "기름진", "술자리", "냄새강함"], "price": 20000}, {"name": "냉면", "tags": ["한식", "소고기", "면", "국물", "가벼움"], "price": 11000}, {"name": "칼국수", "tags": ["한식", "해산물", "면", "국물", "혼밥"], "price": 9000}, {"name": "해물파전", "tags": ["한식", "해산물", "기름진", "술자리"], "price": 15000}, {"name": "아귀찜", "tags": ["한식", "해산물", "매운맛", "단체"], "price": 20000}, {"name": "생선구이", "tags": ["한식", "해산물", "밥"], "price": 11000}, {"name": "쭈꾸미볶음", "tags": ["한식", "해산물", "매운맛", "밥"], "price": 13000}, {"name": "한정식", "tags": ["한식", "채소위주", "밥", "단체"], "price": 20000}, {"name": "샤브샤브", "tags": ["한식", "소고기", "국물", "채소위주", "가벼움", "단체"], "price": 16000}, {"name": "갈비찜", "tags": ["한식", "소고기", "밥", "단체"], "price": 28000}, {"name": "육회비빔밥", "tags": ["한식", "소고기", "날것", "밥"], "price": 12000}, {"name": "콩나물국밥", "tags": ["한식", "국물", "밥", "가벼움", "혼밥"], "price": 8000}, {"name": "뼈해장국", "tags": ["한식", "돼지고기", "국물", "매운맛", "밥", "혼밥", "술자리"], "price": 11000}, {"name": "육개장", "tags": ["한식", "소고기", "국물", "매운맛", "밥", "혼밥"], "price": 11000}, {"name": "곰탕", "tags": ["한식", "소고기", "국물", "밥", "혼밥"], "price": 12000}, {"name": "추어탕", "tags": ["한식", "해산물", "국물", "밥", "냄새강함"], "price": 11000}, {"name": "닭한마리", "tags": ["한식", "닭고기", "국물", "면", "단체"], "price": 13000}, {"name": "낙지볶음", "tags": ["한식", "해산물", "매운맛", "밥"], "price": 14000}, {"name": "오징어볶음", "tags": ["한식", "해산물", "매운맛", "밥"], "price": 12000}, {"name": "쌈밥", "tags": ["한식", "돼지고기", "채소위주", "밥"], "price": 13000}, {"name": "막국수", "tags": ["한식", "면", "가벼움"], "price": 10000}, {"name": "잔치국수", "tags": ["한식", "면", "국물", "가벼움", "혼밥"], "price": 7000}, {"name": "비빔국수", "tags": ["한식", "면", "매운맛", "혼밥"], "price": 8000}, {"name": "수제비", "tags": ["한식", "국물", "혼밥"], "price": 8000}, {"name": "김치볶음밥", "tags": ["한식", "돼지고기", "매운맛", "밥", "혼밥"], "price": 9000}, {"name": "닭발", "tags": ["한식", "닭고기", "매운맛", "술자리"], "price": 18000}, {"name": "막창", "tags": ["한식", "돼지고기", "내장", "기름진", "술자리", "냄새강함"], "price": 18000}, {"name": "장어구이", "tags": ["한식", "해산물", "기름진"], "price": 38000}, {"name": "낙곱새", "tags": ["한식", "해산물", "소고기", "내장", "매운맛", "밥", "단체"], "price": 15000}, {"name": "돼지갈비", "tags": ["한식", "돼지고기", "단체", "술자리"], "price": 18000}, {"name": "버섯전골", "tags": ["한식", "채소위주", "국물", "가벼움", "단체"], "price": 14000}, {"name": "짜장면", "tags": ["중식", "돼지고기", "면", "혼밥"], "price": 8000}, {"name": "짬뽕", "tags": ["중식", "해산물", "면", "국물", "매운맛"], "price": 9500}, {"name": "탕수육", "tags": ["중식", "돼지고기", "튀김", "기름진", "단체", "술자리"], "price": 12000}, {"name": "볶음밥", "tags": ["중식", "밥", "혼밥"], "price": 8500}, {"name": "마라탕", "tags": ["중식", "매운맛", "국물", "면", "혼밥", "냄새강함"], "price": 12000}, {"name": "마라샹궈", "tags": ["중식", "매운맛", "기름진", "단체"], "price": 18000}, {"name": "양꼬치", "tags": ["중식", "기름진", "술자리", "단체", "냄새강함"], "price": 18000}, {"name": "딤섬", "tags": ["중식", "돼지고기", "가벼움"], "price": 15000}, {"name": "마파두부", "tags": ["중식", "돼지고기", "매운맛", "밥"], "price": 11000}, {"name": "깐풍기", "tags": ["중식", "닭고기", "튀김", "매운맛", "단체", "술자리"], "price": 15000}, {"name": "유린기", "tags": ["중식", "닭고기", "튀김", "단체"], "price": 15000}, {"name": "꿔바로우", "tags": ["중식", "돼지고기", "튀김", "기름진", "단체"], "price": 15000}, {"name": "양장피", "tags": ["중식", "해산물", "채소위주", "단체", "술자리"], "price": 20000}, {"name": "탄탄면", "tags": ["중식", "돼지고기", "면", "매운맛", "혼밥"], "price": 11000}, {"name": "볶음짬뽕", "tags": ["중식", "해산물", "면", "매운맛"], "price": 11000}, {"name": "훠궈", "tags": ["중식", "소고기", "국물", "매운맛", "단체"], "price": 25000}, {"name": "짬뽕밥", "tags": ["중식", "해산물", "국물", "매운맛", "밥", "혼밥"], "price": 10000}, {"name": "초밥", "tags": ["일식", "해산물", "날것", "밥"], "price": 18000}, {"name": "회", "tags": ["일식", "해산물", "날것", "술자리", "단체"], "price": 25000}, {"name": "돈까스", "tags": ["일식", "돼지고기", "튀김", "밥", "혼밥"], "price": 11000}, {"name": "라멘", "tags": ["일식", "돼지고기", "면", "국물", "기름진", "혼밥"], "price": 11000}, {"name": "우동", "tags": ["일식", "면", "국물", "가벼움", "혼밥"], "price": 9000}, {"name": "소바", "tags": ["일식", "면", "가벼움", "혼밥"], "price": 10000}, {"name": "규동", "tags": ["일식", "소고기", "밥", "혼밥"], "price": 10000}, {"name": "일본식카레", "tags": ["일식", "밥", "혼밥"], "price": 10000}, {"name": "텐동", "tags": ["일식", "해산물", "튀김", "밥"], "price": 13000}, {"name": "연어덮밥", "tags": ["일식", "해산물", "날것", "밥", "가벼움"], "price": 14000}, {"name": "가츠동", "tags": ["일식", "돼지고기", "튀김", "밥", "혼밥"], "price": 11000}, {"name": "오야코동", "tags": ["일식", "닭고기", "밥", "혼밥"], "price": 10000}, {"name": "장어덮밥", "tags": ["일식", "해산물", "밥"], "price": 25000}, {"name": "규카츠", "tags": ["일식", "소고기", "튀김", "밥"], "price": 18000}, {"name": "오코노미야키", "tags": ["일식", "해산물", "돼지고기", "기름진", "술자리"], "price": 16000}, {"name": "타코야키", "tags": ["일식", "해산물", "가벼움"], "price": 7000}, {"name": "스키야키", "tags": ["일식", "소고기", "국물", "단체"], "price": 25000}, {"name": "야키토리", "tags": ["일식", "닭고기", "술자리"], "price": 18000}, {"name": "카이센동", "tags": ["일식", "해산물", "날것", "밥"], "price": 20000}, {"name": "파스타", "tags": ["양식", "면"], "price": 15000}, {"name": "크림파스타", "tags": ["양식", "면", "유제품", "기름진"], "price": 16000}, {"name": "피자", "tags": ["양식", "빵", "유제품", "기름진", "단체"], "price": 15000}, {"name": "스테이크", "tags": ["양식", "소고기"], "price": 35000}, {"name": "리조또", "tags": ["양식", "밥", "유제품"], "price": 16000}, {"name": "브런치", "tags": ["양식", "빵", "유제품", "가벼움"], "price": 17000}, {"name": "샐러드", "tags": ["양식", "채소위주", "가벼움", "혼밥"], "price": 12000}, {"name": "샌드위치", "tags": ["양식", "빵", "가벼움", "혼밥"], "price": 9000}, {"name": "타코", "tags": ["양식", "소고기", "매운맛"], "price": 14000}, {"name": "함박스테이크", "tags": ["양식", "소고기", "밥"], "price": 15000}, {"name": "감바스", "tags": ["양식", "해산물", "빵", "기름진", "술자리"], "price": 18000}, {"name": "라자냐", "tags": ["양식", "소고기", "유제품", "기름진"], "price": 17000}, {"name": "그라탕", "tags": ["양식", "유제품", "기름진"], "price": 15000}, {"name": "뇨끼", "tags": ["양식", "유제품"], "price": 17000}, {"name": "오므라이스", "tags": ["양식", "밥", "혼밥"], "price": 11000}, {"name": "바비큐 폭립", "tags": ["양식", "돼지고기", "기름진", "단체"], "price": 28000}, {"name": "피시앤칩스", "tags": ["양식", "해산물", "튀김", "기름진"], "price": 16000}, {"name": "부리또", "tags": ["양식", "소고기", "밥", "매운맛", "혼밥"], "price": 11000}, {"name": "퀘사디아", "tags": ["양식", "닭고기", "유제품", "빵"], "price": 12000}, {"name": "떡볶이", "tags": ["분식", "매운맛", "단체"], "price": 8000}, {"name": "김밥", "tags": ["분식", "밥", "가벼움", "혼밥"], "price": 5000}, {"name": "라볶이", "tags": ["분식", "매운맛", "면"], "price": 8000}, {"name": "순대", "tags": ["분식", "돼지고기", "내장"], "price": 7000}, {"name": "모듬튀김", "tags": ["분식", "튀김", "기름진"], "price": 6000}, {"name": "쫄면", "tags": ["분식", "면", "매운맛"], "price": 7000}, {"name": "라면", "tags": ["분식", "면", "국물", "매운맛", "혼밥"], "price": 5000}, {"name": "어묵", "tags": ["분식", "국물", "가벼움"], "price": 5000}, {"name": "토스트", "tags": ["분식", "빵", "가벼움", "혼밥"], "price": 5000}, {"name": "핫도그", "tags": ["분식", "빵", "튀김"], "price": 4000}, {"name": "고기만두", "tags": ["분식", "돼지고기", "가벼움"], "price": 6000}, {"name": "컵밥", "tags": ["분식", "밥", "매운맛", "혼밥"], "price": 6000}, {"name": "주먹밥", "tags": ["분식", "밥", "가벼움", "혼밥"], "price": 4000}, {"name": "떡꼬치", "tags": ["분식", "매운맛", "튀김"], "price": 4000}, {"name": "로제떡볶이", "tags": ["분식", "유제품", "매운맛", "단체"], "price": 10000}, {"name": "쌀국수", "tags": ["아시안", "소고기", "면", "국물", "가벼움", "혼밥"], "price": 11000}, {"name": "팟타이", "tags": ["아시안", "해산물", "면"], "price": 13000}, {"name": "분짜", "tags": ["아시안", "돼지고기", "면", "가벼움"], "price": 13000}, {"name": "인도커리", "tags": ["아시안", "닭고기", "매운맛", "빵", "유제품", "냄새강함"], "price": 15000}, {"name": "똠얌꿍", "tags": ["아시안", "해산물", "국물", "매운맛", "냄새강함"], "price": 15000}, {"name": "반미", "tags": ["아시안", "돼지고기", "빵", "혼밥"], "price": 8000}, {"name": "포케", "tags": ["아시안", "해산물", "날것", "채소위주", "밥", "가벼움"], "price": 13000}, {"name": "나시고렝", "tags": ["아시안", "밥", "매운맛", "혼밥"], "price": 12000}, {"name": "미고렝", "tags": ["아시안", "면", "매운맛"], "price": 12000}, {"name": "카오팟", "tags": ["아시안", "해산물", "밥"], "price": 12000}, {"name": "그린커리", "tags": ["아시안", "닭고기", "매운맛", "밥"], "price": 15000}, {"name": "월남쌈", "tags": ["아시안", "채소위주", "가벼움", "단체"], "price": 15000}, {"name": "반쎄오", "tags": ["아시안", "해산물", "돼지고기", "기름진"], "price": 14000}, {"name": "탄두리치킨", "tags": ["아시안", "닭고기", "매운맛", "냄새강함"], "price": 18000}, {"name": "케밥", "tags": ["아시안", "소고기", "빵", "혼밥"], "price": 10000}, {"name": "팟카파오", "tags": ["아시안", "돼지고기", "매운맛", "밥", "혼밥"], "price": 12000}, {"name": "햄버거", "tags": ["패스트푸드", "소고기", "빵", "튀김", "혼밥"], "price": 9000}, {"name": "치킨", "tags": ["패스트푸드", "닭고기", "튀김", "기름진", "단체", "술자리"], "price": 13000}, {"name": "양념치킨", "tags": ["패스트푸드", "닭고기", "튀김", "매운맛", "단체", "술자리"], "price": 14000}, {"name": "닭강정", "tags": ["패스트푸드", "닭고기", "튀김", "단체"], "price": 12000}, {"name": "치킨버거", "tags": ["패스트푸드", "닭고기", "빵", "튀김", "혼밥"], "price": 8000}, {"name": "버팔로윙", "tags": ["패스트푸드", "닭고기", "튀김", "매운맛", "술자리"], "price": 15000}, {"name": "수제버거", "tags": ["패스트푸드", "소고기", "빵", "기름진"], "price": 14000}]};
 const MENUS = DATA.menus.map(m => ({ name: m.name, tags: m.tags, price: m.price }));
 const M = Object.fromEntries(MENUS.map(m => [m.name, m]));
 const CUISINES = DATA.tag_groups["종류"];
@@ -450,81 +461,82 @@ function makeBracket() {
 }
 const ROUND_LABEL = { 16: "16강", 8: "8강", 4: "준결승", 2: "결승" };
 
-// ── 배경음악: 파일 없이 브라우저에서 바로 만드는 잔잔한 루프 ─────
+// ── 배경음악: bgm.mp3(약 40초)를 끊김 없이 반복 재생 ─────────────
+const BGM_VOL = 0.45;
 const BGM = {
-  ctx: null, bus: null, master: null, playing: false, timer: null, nextT: 0, step: 0, started: false,
-  on: (() => { try { return localStorage.getItem("nyampick-bgm") !== "off"; } catch (e) { return true; } })(),
+  ctx: null, master: null, src: null, buf: null, raw: null, el: null, playing: false, started: false,
+  on: (() => { try { return localStorage.getItem("babdcup-bgm") !== "off"; } catch (e) { return true; } })(),
+  preload() {                                   // 앱을 켤 때 미리 받아두기
+    fetch("bgm.mp3").then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+      .then(b => { this.raw = b; }).catch(() => {});
+  },
   init() {
     if (this.ctx) return true;
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
-    const c = this.ctx = new AC();
-    this.master = c.createGain(); this.master.gain.value = 0;
-    const lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 2400;
-    const dl = c.createDelay(); dl.delayTime.value = 0.42;
-    const fb = c.createGain(); fb.gain.value = 0.3;
-    this.bus = c.createGain();
-    this.bus.connect(lp); this.bus.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(lp);
-    lp.connect(this.master); this.master.connect(c.destination);
+    this.ctx = new AC();
+    this.master = this.ctx.createGain(); this.master.gain.value = 0;
+    this.master.connect(this.ctx.destination);
     return true;
   },
-  start() {
+  async load() {
+    if (this.buf) return this.buf;
+    if (!this.raw) { try { const r = await fetch("bgm.mp3"); if (r.ok) this.raw = await r.arrayBuffer(); } catch (e) {} }
+    if (!this.raw) return null;
+    try { this.buf = await this.ctx.decodeAudioData(this.raw.slice(0)); } catch (e) { this.buf = null; }
+    return this.buf;
+  },
+  fadeTo(v, sec) {
+    const now = this.ctx.currentTime, g = this.master.gain;
+    g.cancelScheduledValues(now); g.setValueAtTime(g.value, now); g.linearRampToValueAtTime(v, now + sec);
+  },
+  async start() {
     this.started = true; syncBgmButton();
     if (!this.on || !this.init()) return;
     this.ctx.resume();
-    const t = this.ctx.currentTime;
-    this.master.gain.cancelScheduledValues(t);
-    this.master.gain.setTargetAtTime(0.55, t, 0.9);
+    this.fadeTo(BGM_VOL, 1.2);
     if (this.playing) return;
-    this.playing = true; this.nextT = t + 0.1; this.step = 0;
-    clearInterval(this.timer); this.timer = setInterval(() => this.tick(), 100);
+    this.playing = true;
+    const buf = await this.load();
+    if (!this.playing || this.src) return;
+    if (buf) {
+      const s = this.ctx.createBufferSource();
+      s.buffer = buf; s.loop = true;                // 끝나면 바로 처음부터 반복
+      s.connect(this.master); s.start(); this.src = s;
+    } else {                                        // 파일을 직접 열었을 때 등: 일반 오디오로 재생
+      if (!this.el) { this.el = new Audio("bgm.mp3"); this.el.loop = true; }
+      this.el.volume = BGM_VOL; this.el.play().catch(() => {});
+    }
   },
   stop(fade = 1.2) {
-    if (!this.ctx || !this.playing) return;
-    const t = this.ctx.currentTime;
-    this.master.gain.cancelScheduledValues(t);
-    this.master.gain.setTargetAtTime(0, t, fade / 3);
+    if (!this.playing) return;
     this.playing = false;
-    setTimeout(() => { if (!this.playing) clearInterval(this.timer); }, fade * 1000 + 300);
+    if (this.ctx) this.fadeTo(0, fade);
+    const s = this.src; this.src = null;
+    setTimeout(() => {
+      try { if (s) s.stop(); } catch (e) {}
+      if (!this.playing && this.el) this.el.pause();
+    }, fade * 1000 + 200);
   },
-  tick() {
-    const spb = 60 / 74 / 2;                                   // 8분음표, 74bpm
-    while (this.nextT < this.ctx.currentTime + 0.4) { this.play(this.step, this.nextT, spb); this.nextT += spb; this.step++; }
-  },
-  play(s, t, spb) {
-    const bar = Math.floor(s / 8) % 4, pos = s % 8;
-    const chords = [[53, 57, 60, 64], [52, 55, 59, 62], [50, 53, 57, 60], [48, 52, 55, 59]]; // Fmaj7 Em7 Dm7 Cmaj7
-    const mel = [[76, 0, 72, 0, 74, 0, 69, 0], [71, 0, 67, 0, 72, 74, 0, 0], [69, 0, 72, 0, 77, 0, 76, 0], [74, 0, 72, 0, 67, 0, 0, 0]];
-    if (pos === 0) {
-      chords[bar].forEach(n => this.note(n, t, spb * 8, "sine", 0.045, 0.8));
-      this.note(chords[bar][0] - 12, t, spb * 8, "triangle", 0.06, 0.05);
-    }
-    if (pos === 4) this.note(chords[bar][2] - 12, t, spb * 4, "triangle", 0.035, 0.05);
-    const m = mel[bar][pos];
-    if (m) this.note(m, t, spb * 2.2, "triangle", 0.04, 0.005);
-  },
-  note(midi, t, dur, type, vol, att) {
-    const c = this.ctx, o = c.createOscillator(), g = c.createGain();
-    o.type = type; o.frequency.value = 440 * Math.pow(2, (midi - 69) / 12);
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(vol, t + att + 0.005);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.connect(g); g.connect(this.bus); o.start(t); o.stop(t + dur + 0.05);
-  },
-  chime() {
+  chime() {                                         // 결과가 나올 때 '띠링'
     if (!this.on || !this.ctx) return;
-    const t = this.ctx.currentTime + 0.05;
-    this.master.gain.cancelScheduledValues(t); this.master.gain.setValueAtTime(0.55, t);
-    [[79, 0], [84, 0.14], [88, 0.28]].forEach(([n, d]) => this.note(n, t + d, 1.4, "triangle", 0.06, 0.005));
-    this.master.gain.setTargetAtTime(0, t + 1.6, 0.4);
+    const c = this.ctx, t = c.currentTime + 0.05;
+    [[79, 0], [84, 0.14], [88, 0.28]].forEach(([n, d]) => {
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = "triangle"; o.frequency.value = 440 * Math.pow(2, (n - 69) / 12);
+      g.gain.setValueAtTime(0, t + d); g.gain.linearRampToValueAtTime(0.08, t + d + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + d + 1.4);
+      o.connect(g); g.connect(c.destination); o.start(t + d); o.stop(t + d + 1.5);
+    });
   },
   toggle() {
     this.on = !this.on;
-    try { localStorage.setItem("nyampick-bgm", this.on ? "on" : "off"); } catch (e) {}
+    try { localStorage.setItem("babdcup-bgm", this.on ? "on" : "off"); } catch (e) {}
     if (this.on && ["handoff", "prefs", "wc"].includes(S.screen)) this.start(); else this.stop(0.6);
     syncBgmButton();
   }
 };
+BGM.preload();
 const bgmBtn = document.getElementById("bgm");
 function syncBgmButton() {
   bgmBtn.hidden = !BGM.started;
@@ -533,8 +545,8 @@ function syncBgmButton() {
 }
 bgmBtn.addEventListener("click", () => BGM.toggle());
 document.addEventListener("visibilitychange", () => {
-  if (!BGM.ctx) return;
-  if (document.hidden) BGM.ctx.suspend(); else if (BGM.playing) BGM.ctx.resume();
+  if (document.hidden) { if (BGM.ctx) BGM.ctx.suspend(); if (BGM.el) BGM.el.pause(); }
+  else if (BGM.playing) { if (BGM.ctx) BGM.ctx.resume(); if (BGM.el && !BGM.src) BGM.el.play().catch(() => {}); }
 });
 
 // ── 방문/목표 달성 집계 (배포 버전에만 GoatCounter가 붙음, 없으면 아무 일도 안 함) ──
@@ -543,24 +555,62 @@ function track(path, title) {
 }
 
 // ── 상태 ─────────────────────────────────────────────────────
-const S = { screen: "setup", names: ["민지", "현우", "서연", "준호"], mode: "평화", people: [], cur: 0, bracket: [], wc: null, demo: false };
+const S = { screen: "setup", names: ["윤호", "강민", "기선", "준기", "상인"], mode: "평화", people: [], cur: 0, bracket: [], wc: null, demo: false, area: "" };
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const won = n => n.toLocaleString("ko-KR") + "원";
-const brand = `<div class="brand"><b>냠픽</b><span>우리 뭐 먹지?</span></div>`;
+const brand = `<div class="brand"><b>밥드컵</b><span>우리 뭐 먹지?</span></div>`;
 
 function render() {
   const fn = { setup: viewSetup, handoff: viewHandoff, prefs: viewPrefs, wc: viewWC, result: viewResult }[S.screen];
-  app.innerHTML = brand + fn();
+  const canBack = HIST.length > 0 && S.screen !== "setup";
+  const backLabel = S.screen === "wc" && S.wc && S.wc.done > 0 ? "이전 대결" : "이전";
+  const head = canBack
+    ? `<div class="brand has-back"><button class="back" data-act="back" aria-label="이전 화면으로">${icon("i-back", "")}${backLabel}</button><b>밥드컵</b></div>`
+    : brand;
+  app.innerHTML = head + fn();
   window.scrollTo(0, 0);
 }
+
+// ── 뒤로가기: 화면이 바뀔 때마다 직전 상태를 저장해두고 한 단계씩 되돌림 ──
+// 앱 안의 '이전' 버튼과 폰의 뒤로가기(안드로이드 버튼, 아이폰 스와이프)가 같은 기록을 씀
+const HIST = [];
+const NAV_ACTS = new Set(["start", "go-prefs", "go-wc", "pick", "again", "demo"]);
+function snapshot() {
+  return {
+    screen: S.screen, cur: S.cur, demo: S.demo, bracket: S.bracket.slice(),
+    wc: S.wc ? JSON.parse(JSON.stringify(S.wc)) : null,
+    people: S.people.map(p => ({ name: p.name, pref: { ...p.pref }, hardNo: [...p.hardNo], dislikes: [...p.dislikes], budget: p.budget }))
+  };
+}
+function restore(x) {
+  Object.assign(S, { screen: x.screen, cur: x.cur, demo: x.demo, bracket: x.bracket, wc: x.wc });
+  S.people = x.people.map(p => ({ ...p, hardNo: new Set(p.hardNo), dislikes: new Set(p.dislikes) }));
+}
+let historyOK = true, waitingPop = null;
+function pushHistory() { try { history.pushState({ babdcup: HIST.length }, ""); } catch (e) { historyOK = false; } }
+function goBack() {
+  if (!HIST.length) return;
+  const from = S.screen;
+  restore(HIST.pop());
+  if (S.screen === "setup") BGM.stop(0.6);
+  else if (from === "result" && S.screen === "wc") BGM.start();
+  render();
+}
+function requestBack() {
+  if (!historyOK) return goBack();
+  clearTimeout(waitingPop);
+  waitingPop = setTimeout(goBack, 350);          // popstate가 안 오면 직접 처리
+  try { history.back(); } catch (e) { clearTimeout(waitingPop); goBack(); }
+}
+window.addEventListener("popstate", () => { clearTimeout(waitingPop); goBack(); });
 
 // 메뉴판 인포그래픽: 종류별 메뉴 수
 function menuBoard() {
   const counts = CUISINES.map(c => [c, MENUS.filter(m => m.tags[0] === c).length]);
   const max = Math.max(...counts.map(x => x[1]));
   return `<div class="panel">
-    <h2>냠픽 메뉴판 · 모두 ${MENUS.length}가지</h2>
+    <h2>밥드컵 메뉴판 · 모두 ${MENUS.length}가지</h2>
     <div class="menuboard">${counts.map(([c, n]) => `
       <div class="mb c-${c}">
         <div class="top">${icon(ART[c])}<span class="cnt">${n}<small>개</small></span></div>
@@ -704,7 +754,7 @@ function viewResult() {
     const v = Math.round(r.scores[i] * 100);
     return `<span class="n">${esc(p.name)}</span><span class="track"><span class="fill" style="width:${v}%"></span></span><span class="v">${v}</span>`;
   }).join("")}</div>`;
-  const find = n => `<div class="links"><a href="https://map.naver.com/p/search/${encodeURIComponent(n)}" target="_blank" rel="noopener">네이버지도에서 찾기</a><a href="https://map.kakao.com/?q=${encodeURIComponent(n)}" target="_blank" rel="noopener">카카오맵</a></div>`;
+  const find = n => `<div class="links"><a data-map="kakao" data-menu="${esc(n)}" href="${mapUrl("kakao", n)}" target="_blank" rel="noopener">카카오맵에서 찾기</a><a data-map="naver" data-menu="${esc(n)}" href="${mapUrl("naver", n)}" target="_blank" rel="noopener">네이버지도</a></div>`;
   let body;
   if (!top.length) {
     body = `<div class="panel empty">모두가 무난한 메뉴를 못 찾았어요.<br>결정 방식을 '만족도'로 바꿔보세요.</div>`;
@@ -717,8 +767,9 @@ function viewResult() {
         <span class="name">${esc(first.name)}</span>
         <span class="reason">${esc(first.reason)}</span>
         ${bars(first)}
-        <div class="foot"><span class="pts">${first.score}점</span><a href="https://map.naver.com/p/search/${encodeURIComponent(first.name)}" target="_blank" rel="noopener">근처 식당 찾기 →</a></div>
+        <div class="foot"><span class="pts">${first.score}점</span><a data-map="kakao" data-menu="${esc(first.name)}" href="${mapUrl("kakao", first.name)}" target="_blank" rel="noopener">카카오맵에서 식당 찾기 →</a></div>
       </div>
+      ${areaBox()}
       ${rest.length ? `<div class="panel">${rest.map((r, i) => `
         <div class="alt">
           <div class="top">${icon(ART[cuisineOf(M[r.name])])}<span class="rank">${i + 2}위</span><span class="name">${esc(r.name)}</span><span class="pts">${r.score}점</span></div>
@@ -744,6 +795,19 @@ function viewResult() {
     <button class="btn ghost" data-act="reset">처음으로</button>`;
 }
 
+// 카카오맵·네이버지도 검색 주소 (지역을 적으면 "강남역 돈까스"처럼 검색)
+function mapUrl(kind, menu) {
+  const q = encodeURIComponent(((S.area || "").trim() + " " + menu).trim());
+  return kind === "kakao" ? `https://map.kakao.com/link/search/${q}` : `https://map.naver.com/p/search/${q}`;
+}
+function areaBox() {
+  return `<div class="panel area">
+    <h2>어디서 먹어요?</h2>
+    <div class="row"><input type="text" id="area" data-area value="${esc(S.area)}" placeholder="예: 강남역, 홍대입구, 우리 동네 이름" maxlength="20" aria-label="먹을 지역"></div>
+    <p class="hint">지역을 적으면 카카오맵에서 그 근처 식당을 바로 찾아줘요. 위치 정보는 따로 쓰지 않아요.</p>
+  </div>`;
+}
+
 // ── 이벤트 ───────────────────────────────────────────────────
 function person(name) { return { name, pref: {}, hardNo: new Set(), dislikes: new Set(), budget: null }; }
 function begin(names) {
@@ -751,11 +815,17 @@ function begin(names) {
 }
 app.addEventListener("input", e => {
   const i = e.target.dataset.name; if (i !== undefined) S.names[+i] = e.target.value;
+  if (e.target.dataset.area !== undefined) {
+    S.area = e.target.value;
+    app.querySelectorAll("a[data-map]").forEach(a => { a.href = mapUrl(a.dataset.map, a.dataset.menu); });
+  }
 });
 app.addEventListener("click", e => {
   const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
   const act = el.dataset.act, p = S.people[S.cur];
+  if (act === "back") return requestBack();
   const before = S.screen;
+  const snap = NAV_ACTS.has(act) ? snapshot() : null;
   switch (act) {
     case "add": S.names.push(""); break;
     case "del": S.names.splice(+el.dataset.i, 1); break;
@@ -773,9 +843,10 @@ app.addEventListener("click", e => {
     case "go-wc": BGM.start(); startWC(); break;
     case "pick": resolve(+el.dataset.i); break;
     case "again": begin(S.people.map(x => x.name)); break;
-    case "reset": BGM.stop(0.6); S.screen = "setup"; S.demo = false; break;
+    case "reset": BGM.stop(0.6); S.screen = "setup"; S.demo = false; HIST.length = 0; break;
     case "demo": loadDemo(); break;
   }
+  if (snap && (S.screen !== before || act === "pick")) { HIST.push(snap); pushHistory(); }
   if (S.screen === "result" && before !== "result") { BGM.stop(1.2); if (!S.demo) { BGM.chime(); track("menu-decided", "메뉴 결정 완료"); } }
   render();
 });
