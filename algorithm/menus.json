@@ -1,5 +1,5 @@
 {
- "version": "0.3",
+ "version": "1.0",
  "tag_groups": {
   "종류": [
    "한식",
@@ -50,408 +50,94 @@
  ],
  "menus": [
   {
-   "name": "김치찌개",
+   "name": "국밥·해장국",
    "tags": [
     "한식",
-    "돼지고기",
-    "국물",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "참",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Korean_stew_dish_-_Kimchi-jjigae_Kimchi_Stew_2019_%2801%29.jpg/500px-Korean_stew_dish_-_Kimchi-jjigae_Kimchi_Stew_2019_%2801%29.jpg",
-    "author": "한국농수산식품유통공사",
-    "license": "KOGL Type 1"
-   }
-  },
-  {
-   "name": "된장찌개",
-   "tags": [
-    "한식",
-    "국물",
-    "밥",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Doenjang_jjigae.jpg/500px-Doenjang_jjigae.jpg",
-    "author": "ZenKimchi",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "순두부찌개",
-   "tags": [
-    "한식",
-    "해산물",
-    "국물",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    7000,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Korean.food-Sundubu.jjigae-01.jpg/500px-Korean.food-Sundubu.jjigae-01.jpg",
-    "author": "titanium22",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "부대찌개",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "국물",
-    "매운맛",
-    "면",
-    "단체"
-   ],
-   "price": 12000,
-   "price_range": [
-    10000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Budae_jjigae_%2828587380901%29.jpg/500px-Budae_jjigae_%2828587380901%29.jpg",
-    "author": "T.Tseng",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "제육볶음",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 9500,
-   "price_range": [
-    7000,
-    12000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-    "author": "메이",
-    "license": "CC BY-SA 1.0"
-   }
-  },
-  {
-   "name": "불고기",
-   "tags": [
-    "한식",
-    "소고기",
-    "밥"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Bulgogi_2.jpg/500px-Bulgogi_2.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "비빔밥",
-   "tags": [
-    "한식",
-    "채소위주",
-    "밥",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 11500,
-   "price_range": [
-    10000,
-    13000
-   ],
-   "price_src": "참",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/500px-Dolsot-bibimbap.jpg",
-    "author": "Sous Chef",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "국밥",
-   "tags": [
-    "한식",
-    "돼지고기",
     "국물",
     "밥",
     "혼밥",
     "술자리"
    ],
-   "price": 11000,
+   "price": 12000,
    "price_range": [
-    9000,
-    13000
+    8000,
+    16000
    ],
    "price_src": "기",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Dwaeji-gukbap.jpg/500px-Dwaeji-gukbap.jpg",
     "author": "사이팔사",
     "license": "CC BY 2.0 KR"
-   }
+   },
+   "includes": [
+    "국밥",
+    "순대국",
+    "뼈해장국",
+    "콩나물국밥",
+    "설렁탕",
+    "곰탕"
+   ]
   },
   {
-   "name": "순대국",
+   "name": "찌개·백반",
    "tags": [
     "한식",
-    "돼지고기",
-    "내장",
-    "국물",
-    "밥",
-    "혼밥",
-    "냄새강함"
-   ],
-   "price": 10000,
-   "price_range": [
-    9000,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Sundae-guk.jpg/500px-Sundae-guk.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "설렁탕",
-   "tags": [
-    "한식",
-    "소고기",
     "국물",
     "밥",
     "혼밥"
    ],
-   "price": 14000,
+   "price": 10500,
    "price_range": [
-    12000,
-    16000
+    7000,
+    14000
    ],
-   "price_src": "추",
+   "price_src": "참",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Seolleongtang2024.jpg/500px-Seolleongtang2024.jpg",
-    "author": "Kimhs5400",
-    "license": "CC BY 4.0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Korean_stew_dish_-_Kimchi-jjigae_Kimchi_Stew_2019_%2801%29.jpg/500px-Korean_stew_dish_-_Kimchi-jjigae_Kimchi_Stew_2019_%2801%29.jpg",
+    "author": "한국농수산식품유통공사",
+    "license": "KOGL Type 1"
+   },
+   "includes": [
+    "김치찌개",
+    "된장찌개",
+    "순두부찌개",
+    "부대찌개",
+    "제육볶음"
+   ]
   },
   {
-   "name": "갈비탕",
+   "name": "고기구이",
    "tags": [
     "한식",
+    "돼지고기",
     "소고기",
-    "국물",
-    "밥"
-   ],
-   "price": 17500,
-   "price_range": [
-    15000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg/500px-Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg",
-    "author": "Beeniru",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "감자탕",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "국물",
-    "매운맛",
-    "단체",
-    "술자리"
-   ],
-   "price": 13000,
-   "price_range": [
-    11000,
-    15000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Gamja-tang_5.jpg/500px-Gamja-tang_5.jpg",
-    "author": "travel oriented",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "삼겹살",
-   "tags": [
-    "한식",
-    "돼지고기",
     "기름진",
     "단체",
     "술자리",
     "냄새강함"
    ],
-   "price": 20500,
+   "price": 24500,
    "price_range": [
-    18000,
-    23000
+    17000,
+    32000
    ],
    "price_src": "참",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Samgyeopsal-gui.jpg/500px-Samgyeopsal-gui.jpg",
     "author": "jinsoo jang",
     "license": "CC0"
-   }
+   },
+   "includes": [
+    "삼겹살",
+    "돼지갈비",
+    "소갈비"
+   ]
   },
   {
-   "name": "소갈비",
-   "tags": [
-    "한식",
-    "소고기",
-    "단체",
-    "술자리"
-   ],
-   "price": 42500,
-   "price_range": [
-    35000,
-    50000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Korean.food-Galbi-03.jpg/500px-Korean.food-Galbi-03.jpg",
-    "author": "ayustety",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "닭갈비",
-   "tags": [
-    "한식",
-    "닭고기",
-    "매운맛",
-    "단체"
-   ],
-   "price": 14500,
-   "price_range": [
-    13000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Korean_cuisine-Dakgalbi-01.jpg/500px-Korean_cuisine-Dakgalbi-01.jpg",
-    "author": "shizu k",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "찜닭",
-   "tags": [
-    "한식",
-    "닭고기",
-    "면",
-    "단체"
-   ],
-   "price": 12500,
-   "price_range": [
-    10000,
-    15000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Korean.cuisine-Andong.jjimdalk-01.jpg/500px-Korean.cuisine-Andong.jjimdalk-01.jpg",
-    "author": "takoradee",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "닭볶음탕",
-   "tags": [
-    "한식",
-    "닭고기",
-    "국물",
-    "매운맛",
-    "단체"
-   ],
-   "price": 13500,
-   "price_range": [
-    11000,
-    16000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Korean.food-Dakbokemtang-01.jpg/500px-Korean.food-Dakbokemtang-01.jpg",
-    "author": "stuart_spivack",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "삼계탕",
-   "tags": [
-    "한식",
-    "닭고기",
-    "국물"
-   ],
-   "price": 18500,
-   "price_range": [
-    17000,
-    20000
-   ],
-   "price_src": "참",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Samgye-tang_2.jpg/500px-Samgye-tang_2.jpg",
-    "author": "wizdata",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "보쌈",
+   "name": "족발·보쌈",
    "tags": [
     "한식",
     "돼지고기",
-    "단체",
-    "술자리"
-   ],
-   "price": 18500,
-   "price_range": [
-    15000,
-    22000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/KOCIS_BOSSAM%2C_napa_wraps_with_pork_%284618280268%29.jpg/500px-KOCIS_BOSSAM%2C_napa_wraps_with_pork_%284618280268%29.jpg",
-    "author": "Korea.net / KOCIS",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "족발",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "기름진",
     "단체",
     "술자리"
    ],
@@ -465,21 +151,50 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Korean.food-Jokbal-01.jpg/500px-Korean.food-Jokbal-01.jpg",
     "author": "ayustety",
     "license": "CC BY-SA 2.0"
-   }
+   },
+   "includes": [
+    "족발",
+    "보쌈"
+   ]
   },
   {
-   "name": "곱창",
+   "name": "닭갈비·찜닭",
    "tags": [
     "한식",
-    "소고기",
+    "닭고기",
+    "매운맛",
+    "단체"
+   ],
+   "price": 14000,
+   "price_range": [
+    10000,
+    18000
+   ],
+   "price_src": "추",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Korean_cuisine-Dakgalbi-01.jpg/500px-Korean_cuisine-Dakgalbi-01.jpg",
+    "author": "shizu k",
+    "license": "CC BY-SA 2.0"
+   },
+   "includes": [
+    "닭갈비",
+    "찜닭",
+    "닭볶음탕",
+    "닭한마리"
+   ]
+  },
+  {
+   "name": "곱창·막창",
+   "tags": [
+    "한식",
     "내장",
     "기름진",
     "술자리",
     "냄새강함"
    ],
-   "price": 24000,
+   "price": 22000,
    "price_range": [
-    20000,
+    16000,
     28000
    ],
    "price_src": "추",
@@ -487,20 +202,23 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Korean.food-Gobchang.bokkem-01.jpg/500px-Korean.food-Gobchang.bokkem-01.jpg",
     "author": "keizie",
     "license": "CC BY 2.0"
-   }
+   },
+   "includes": [
+    "곱창",
+    "막창",
+    "낙곱새"
+   ]
   },
   {
-   "name": "냉면",
+   "name": "냉면·국수",
    "tags": [
     "한식",
-    "소고기",
     "면",
-    "국물",
     "가벼움"
    ],
-   "price": 12500,
+   "price": 11000,
    "price_range": [
-    11000,
+    8500,
     14000
    ],
    "price_src": "참",
@@ -508,127 +226,298 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Dongmu_Bapsang_02.jpg/500px-Dongmu_Bapsang_02.jpg",
     "author": "korea.net",
     "license": "CC BY-SA 2.0"
-   }
+   },
+   "includes": [
+    "냉면",
+    "막국수",
+    "칼국수",
+    "잔치국수",
+    "비빔국수"
+   ]
   },
   {
-   "name": "칼국수",
+   "name": "비빔밥·덮밥",
    "tags": [
     "한식",
-    "해산물",
-    "면",
-    "국물",
+    "밥",
+    "채소위주",
+    "가벼움",
     "혼밥"
    ],
-   "price": 10000,
+   "price": 12000,
    "price_range": [
-    9000,
-    11000
+    8000,
+    16000
    ],
    "price_src": "참",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Haemul-kal-guksu.jpg/500px-Haemul-kal-guksu.jpg",
-    "author": "행복한 초록개구리",
-    "license": "CC BY 4.0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/500px-Dolsot-bibimbap.jpg",
+    "author": "Sous Chef",
+    "license": "CC BY 2.0"
+   },
+   "includes": [
+    "비빔밥",
+    "육회비빔밥",
+    "쌈밥",
+    "김치볶음밥"
+   ]
   },
   {
-   "name": "해물파전",
+   "name": "보양식",
    "tags": [
     "한식",
-    "해산물",
-    "기름진",
-    "술자리"
+    "닭고기",
+    "소고기",
+    "국물"
    ],
-   "price": 10000,
+   "price": 17000,
    "price_range": [
-    8000,
-    12000
+    13500,
+    20000
    ],
-   "price_src": "추",
+   "price_src": "참",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Korean_pancake-Pajeon-06.jpg/500px-Korean_pancake-Pajeon-06.jpg",
-    "author": "Maggie",
-    "license": "CC BY 2.0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Samgye-tang_2.jpg/500px-Samgye-tang_2.jpg",
+    "author": "wizdata",
+    "license": "CC0"
+   },
+   "includes": [
+    "삼계탕",
+    "갈비탕",
+    "육개장",
+    "추어탕"
+   ]
   },
   {
-   "name": "아귀찜",
+   "name": "해물요리",
    "tags": [
     "한식",
     "해산물",
     "매운맛",
     "단체"
    ],
-   "price": 18500,
+   "price": 16500,
    "price_range": [
-    15000,
+    11000,
     22000
    ],
    "price_src": "추",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Korean.food-Agu.jjim-01.jpg/500px-Korean.food-Agu.jjim-01.jpg",
-    "author": "stu_spivack",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Korean_cuisine-Nakji_bokkeum-01.jpg/500px-Korean_cuisine-Nakji_bokkeum-01.jpg",
+    "author": "Beng Han Ho",
     "license": "CC BY-SA 2.0"
-   }
+   },
+   "includes": [
+    "아귀찜",
+    "낙지볶음",
+    "쭈꾸미볶음",
+    "오징어볶음",
+    "해물파전"
+   ]
   },
   {
-   "name": "생선구이",
+   "name": "짜장·짬뽕",
    "tags": [
-    "한식",
-    "해산물",
-    "밥"
+    "중식",
+    "면",
+    "혼밥"
+   ],
+   "price": 9000,
+   "price_range": [
+    7000,
+    11500
+   ],
+   "price_src": "참",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Jajangmyeon.jpg/500px-Jajangmyeon.jpg",
+    "author": "국립국어원",
+    "license": "CC BY-SA 2.0 KR"
+   },
+   "includes": [
+    "짜장면",
+    "짬뽕",
+    "볶음밥",
+    "짬뽕밥"
+   ]
+  },
+  {
+   "name": "탕수육·중식요리",
+   "tags": [
+    "중식",
+    "튀김",
+    "기름진",
+    "단체",
+    "술자리"
    ],
    "price": 13000,
    "price_range": [
-    11000,
-    15000
+    9000,
+    16500
    ],
    "price_src": "추",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Godeungeo-gui.jpg/500px-Godeungeo-gui.jpg",
-    "author": "Daniel Moskowitz",
-    "license": "CC0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tangsuyuk_%28Korean_Chinese_sweet_and_sour_pork%29.jpg/500px-Tangsuyuk_%28Korean_Chinese_sweet_and_sour_pork%29.jpg",
+    "author": "용스토리",
+    "license": "CC BY 4.0"
+   },
+   "includes": [
+    "탕수육",
+    "깐풍기",
+    "유린기",
+    "꿔바로우",
+    "마파두부"
+   ]
   },
   {
-   "name": "쭈꾸미볶음",
+   "name": "마라탕",
    "tags": [
-    "한식",
-    "해산물",
+    "중식",
     "매운맛",
-    "밥"
+    "국물",
+    "혼밥",
+    "냄새강함"
    ],
-   "price": 14500,
+   "price": 16000,
    "price_range": [
-    13000,
+    10000,
+    22000
+   ],
+   "price_src": "추",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Malatang_from_South_Korea.jpg/500px-Malatang_from_South_Korea.jpg",
+    "author": "오모군",
+    "license": "CC BY 3.0"
+   },
+   "includes": [
+    "마라탕",
+    "마라샹궈"
+   ]
+  },
+  {
+   "name": "훠궈·양꼬치",
+   "tags": [
+    "중식",
+    "매운맛",
+    "기름진",
+    "단체",
+    "술자리"
+   ],
+   "price": 21500,
+   "price_range": [
+    15000,
+    28000
+   ],
+   "price_src": "추",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Yang-kkochi_8.jpg/500px-Yang-kkochi_8.jpg",
+    "author": "대경라이프",
+    "license": "CC BY-SA 4.0"
+   },
+   "includes": [
+    "훠궈",
+    "양꼬치"
+   ]
+  },
+  {
+   "name": "초밥·회",
+   "tags": [
+    "일식",
+    "해산물",
+    "날것"
+   ],
+   "price": 23500,
+   "price_range": [
+    12000,
+    35000
+   ],
+   "price_src": "추",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/500px-Sushi_platter.jpg",
+    "author": "chidorian",
+    "license": "CC BY-SA 2.0"
+   },
+   "includes": [
+    "초밥",
+    "회",
+    "연어덮밥",
+    "카이센동"
+   ]
+  },
+  {
+   "name": "돈까스",
+   "tags": [
+    "일식",
+    "돼지고기",
+    "튀김",
+    "밥",
+    "혼밥"
+   ],
+   "price": 15000,
+   "price_range": [
+    9500,
+    21000
+   ],
+   "price_src": "프",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tonkatsu_of_Kimukatsu.jpg/500px-Tonkatsu_of_Kimukatsu.jpg",
+    "author": "Minseong Kim",
+    "license": "CC BY-SA 4.0"
+   },
+   "includes": [
+    "돈까스",
+    "가츠동",
+    "규카츠"
+   ]
+  },
+  {
+   "name": "라멘·우동",
+   "tags": [
+    "일식",
+    "면",
+    "국물",
+    "혼밥"
+   ],
+   "price": 11000,
+   "price_range": [
+    8000,
+    14000
+   ],
+   "price_src": "추",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/500px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg",
+    "author": "Lombroso",
+    "license": "CC BY-SA 3.0"
+   },
+   "includes": [
+    "라멘",
+    "우동",
+    "소바"
+   ]
+  },
+  {
+   "name": "일식 덮밥",
+   "tags": [
+    "일식",
+    "밥",
+    "혼밥"
+   ],
+   "price": 12500,
+   "price_range": [
+    9000,
     16000
    ],
    "price_src": "추",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jjukkumi-bokkeum.jpg/500px-Jjukkumi-bokkeum.jpg",
-    "author": "대경라이프",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "한정식",
-   "tags": [
-    "한식",
-    "채소위주",
-    "밥",
-    "단체"
-   ],
-   "price": 30000,
-   "price_range": [
-    20000,
-    40000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Korean_cuisine-Hanjeongsik-06.jpg/500px-Korean_cuisine-Hanjeongsik-06.jpg",
-    "author": "jetohs",
-    "license": "CC BY-SA 2.0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gyuu-don_003.jpg/500px-Gyuu-don_003.jpg",
+    "author": "Ocdp",
+    "license": "CC0"
+   },
+   "includes": [
+    "규동",
+    "텐동",
+    "오야코동",
+    "일본식카레"
+   ]
   },
   {
    "name": "샤브샤브",
@@ -637,7 +526,6 @@
     "소고기",
     "국물",
     "채소위주",
-    "가벼움",
     "단체"
    ],
    "price": 20500,
@@ -650,1203 +538,18 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Shabu-shabu-01.jpg/500px-Shabu-shabu-01.jpg",
     "author": "jimg944",
     "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "갈비찜",
-   "tags": [
-    "한식",
-    "소고기",
-    "밥",
-    "단체"
-   ],
-   "price": 30000,
-   "price_range": [
-    25000,
-    35000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Korean_cuisine-Galbijjim-06.jpg/500px-Korean_cuisine-Galbijjim-06.jpg",
-    "author": "Richy!",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "육회비빔밥",
-   "tags": [
-    "한식",
-    "소고기",
-    "날것",
-    "밥"
-   ],
-   "price": 13000,
-   "price_range": [
-    11000,
-    15000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1001_yukhoe.jpg/500px-1001_yukhoe.jpg",
-    "author": "Nuyos",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "콩나물국밥",
-   "tags": [
-    "한식",
-    "국물",
-    "밥",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Kongnamul_gukbap_20230408_003.jpg/500px-Kongnamul_gukbap_20230408_003.jpg",
-    "author": "Mobius6",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "뼈해장국",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "국물",
-    "매운맛",
-    "밥",
-    "혼밥",
-    "술자리"
-   ],
-   "price": 10000,
-   "price_range": [
-    9000,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Korean_soup-Seonjiguk-01.jpg/500px-Korean_soup-Seonjiguk-01.jpg",
-    "author": "SJ Yang",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "육개장",
-   "tags": [
-    "한식",
-    "소고기",
-    "국물",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Korean_soup-Yukgaejang-01.jpg/500px-Korean_soup-Yukgaejang-01.jpg",
-    "author": "live",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "곰탕",
-   "tags": [
-    "한식",
-    "소고기",
-    "국물",
-    "밥",
-    "혼밥"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Kkori-gomtang.jpg/500px-Kkori-gomtang.jpg",
-    "author": "굿바이 조미료",
-    "license": "CC BY 2.0 KR"
-   }
-  },
-  {
-   "name": "추어탕",
-   "tags": [
-    "한식",
-    "해산물",
-    "국물",
-    "밥",
-    "냄새강함"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Chueo-tang.jpg/500px-Chueo-tang.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "닭한마리",
-   "tags": [
-    "한식",
-    "닭고기",
-    "국물",
-    "면",
-    "단체"
-   ],
-   "price": 15500,
-   "price_range": [
-    13000,
-    18000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Korean_cuisine-Dak_hanmari-02.jpg/500px-Korean_cuisine-Dak_hanmari-02.jpg",
-    "author": "Larry",
-    "license": "CC BY 2.5"
-   }
-  },
-  {
-   "name": "낙지볶음",
-   "tags": [
-    "한식",
-    "해산물",
-    "매운맛",
-    "밥"
-   ],
-   "price": 16000,
-   "price_range": [
-    14000,
-    18000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Korean_cuisine-Nakji_bokkeum-01.jpg/500px-Korean_cuisine-Nakji_bokkeum-01.jpg",
-    "author": "Beng Han Ho",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "오징어볶음",
-   "tags": [
-    "한식",
-    "해산물",
-    "매운맛",
-    "밥"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/%EC%98%A4%EC%A7%95%EC%96%B4%EB%B3%B6%EC%9D%8C01.jpg/500px-%EC%98%A4%EC%A7%95%EC%96%B4%EB%B3%B6%EC%9D%8C01.jpg",
-    "author": "EAT&ART TARO",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "쌈밥",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "채소위주",
-    "밥"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ssam_vegetables_and_ssamjang.jpg/500px-Ssam_vegetables_and_ssamjang.jpg",
-    "author": "wizdata",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "막국수",
-   "tags": [
-    "한식",
-    "면",
-    "가벼움"
-   ],
-   "price": 11500,
-   "price_range": [
-    10000,
-    13000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mulmakguksu_20220430_001.jpg/500px-Mulmakguksu_20220430_001.jpg",
-    "author": "Mobius6",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "잔치국수",
-   "tags": [
-    "한식",
-    "면",
-    "국물",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 8000,
-   "price_range": [
-    7000,
-    9000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Janchiguksu.jpg",
-    "author": "boy from Seoul, Korea",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "비빔국수",
-   "tags": [
-    "한식",
-    "면",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bibim-guksu.jpg/500px-Bibim-guksu.jpg",
-    "author": "JeongHO Suh",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "수제비",
-   "tags": [
-    "한식",
-    "국물",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Sujebi.jpg/500px-Sujebi.jpg",
-    "author": "방신애",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "김치볶음밥",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 7500,
-   "price_range": [
-    6000,
-    9000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kimchi-bokkeum-bap.jpg/500px-Kimchi-bokkeum-bap.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "닭발",
-   "tags": [
-    "한식",
-    "닭고기",
-    "매운맛",
-    "술자리"
-   ],
-   "price": 18500,
-   "price_range": [
-    15000,
-    22000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Chicken_feet_2.jpg/500px-Chicken_feet_2.jpg",
-    "author": "ไทย",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "막창",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "내장",
-    "기름진",
-    "술자리",
-    "냄새강함"
-   ],
-   "price": 21500,
-   "price_range": [
-    18000,
-    25000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/2%EB%AF%B8-%EB%A7%89%EC%B0%BD%EA%B5%AC%EC%9D%B4.jpg/500px-2%EB%AF%B8-%EB%A7%89%EC%B0%BD%EA%B5%AC%EC%9D%B4.jpg",
-    "author": "대구광역시",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "장어구이",
-   "tags": [
-    "한식",
-    "해산물",
-    "기름진"
-   ],
-   "price": 42500,
-   "price_range": [
-    35000,
-    50000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Unagi1.jpg/500px-Unagi1.jpg",
-    "author": "Naotake Murayama",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "낙곱새",
-   "tags": [
-    "한식",
-    "해산물",
-    "소고기",
-    "내장",
-    "매운맛",
-    "밥",
-    "단체"
-   ],
-   "price": 15500,
-   "price_range": [
-    14000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Nakji-bokkeum.jpg/500px-Nakji-bokkeum.jpg",
-    "author": "박家상민",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "돼지갈비",
-   "tags": [
-    "한식",
-    "돼지고기",
-    "단체",
-    "술자리"
-   ],
-   "price": 19500,
-   "price_range": [
-    17000,
-    22000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%EB%8F%BC%EC%A7%80%EA%B0%88%EB%B9%84_%EC%82%AC%EC%A7%842.jpg/500px-%EB%8F%BC%EC%A7%80%EA%B0%88%EB%B9%84_%EC%82%AC%EC%A7%842.jpg",
-    "author": "최태진",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "버섯전골",
-   "tags": [
-    "한식",
-    "채소위주",
-    "국물",
-    "가벼움",
-    "단체"
-   ],
-   "price": 15000,
-   "price_range": [
-    13000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/KOCIS_dubu-jeongol%2C_Tofu_Hot_Pot_%284556778564%29.jpg/500px-KOCIS_dubu-jeongol%2C_Tofu_Hot_Pot_%284556778564%29.jpg",
-    "author": "Korea.net / KOCIS",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "짜장면",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "면",
-    "혼밥"
-   ],
-   "price": 8000,
-   "price_range": [
-    7000,
-    8500
-   ],
-   "price_src": "참",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Jajangmyeon.jpg/500px-Jajangmyeon.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "짬뽕",
-   "tags": [
-    "중식",
-    "해산물",
-    "면",
-    "국물",
-    "매운맛"
-   ],
-   "price": 10000,
-   "price_range": [
-    9000,
-    11000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Jjampong.JPG/500px-Jjampong.JPG",
-    "author": "Alfpooh",
-    "license": "Public domain"
-   }
-  },
-  {
-   "name": "탕수육",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "튀김",
-    "기름진",
-    "단체",
-    "술자리"
-   ],
-   "price": 10500,
-   "price_range": [
-    9000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tangsuyuk_%28Korean_Chinese_sweet_and_sour_pork%29.jpg/500px-Tangsuyuk_%28Korean_Chinese_sweet_and_sour_pork%29.jpg",
-    "author": "용스토리",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "볶음밥",
-   "tags": [
-    "중식",
-    "밥",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    8000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg/500px-Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg",
-    "author": "Vyacheslav Argenberg",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "마라탕",
-   "tags": [
-    "중식",
-    "매운맛",
-    "국물",
-    "면",
-    "혼밥",
-    "냄새강함"
-   ],
-   "price": 13000,
-   "price_range": [
-    10000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Malatang_from_South_Korea.jpg/500px-Malatang_from_South_Korea.jpg",
-    "author": "오모군",
-    "license": "CC BY 3.0"
-   }
-  },
-  {
-   "name": "마라샹궈",
-   "tags": [
-    "중식",
-    "매운맛",
-    "기름진",
-    "단체"
-   ],
-   "price": 20000,
-   "price_range": [
-    15000,
-    25000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ma_La_Xiang_Guo.jpg/500px-Ma_La_Xiang_Guo.jpg",
-    "author": "我乃野云鹤",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "양꼬치",
-   "tags": [
-    "중식",
-    "기름진",
-    "술자리",
-    "단체",
-    "냄새강함"
-   ],
-   "price": 17500,
-   "price_range": [
-    15000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Yang-kkochi_8.jpg/500px-Yang-kkochi_8.jpg",
-    "author": "대경라이프",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "딤섬",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "가벼움"
-   ],
-   "price": 16000,
-   "price_range": [
-    12000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dim_sum.jpg/500px-Dim_sum.jpg",
-    "author": "ProjectManhattan",
-    "license": "Public domain"
-   }
-  },
-  {
-   "name": "마파두부",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "매운맛",
-    "밥"
-   ],
-   "price": 11000,
-   "price_range": [
-    10000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Billyfoodmabodofu3.jpg/500px-Billyfoodmabodofu3.jpg",
-    "author": "Archon6812",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "깐풍기",
-   "tags": [
-    "중식",
-    "닭고기",
-    "튀김",
-    "매운맛",
-    "단체",
-    "술자리"
-   ],
-   "price": 14500,
-   "price_range": [
-    12000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kkanpunggi.jpg/500px-Kkanpunggi.jpg",
-    "author": "erin",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "유린기",
-   "tags": [
-    "중식",
-    "닭고기",
-    "튀김",
-    "단체"
-   ],
-   "price": 14500,
-   "price_range": [
-    12000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/You-lin-ji_Japan.jpg/500px-You-lin-ji_Japan.jpg",
-    "author": "MaedaAkihiko",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "꿔바로우",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "튀김",
-    "기름진",
-    "단체"
-   ],
-   "price": 14500,
-   "price_range": [
-    12000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gu%C5%8Db%C4%81or%C3%B2u.jpg/500px-Gu%C5%8Db%C4%81or%C3%B2u.jpg",
-    "author": "chengzhu",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "양장피",
-   "tags": [
-    "중식",
-    "해산물",
-    "채소위주",
-    "단체",
-    "술자리"
-   ],
-   "price": 18500,
-   "price_range": [
-    15000,
-    22000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Yangjangpi.jpg/500px-Yangjangpi.jpg",
-    "author": "춘천막국수",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "탄탄면",
-   "tags": [
-    "중식",
-    "돼지고기",
-    "면",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 11500,
-   "price_range": [
-    10000,
-    13000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dan-dan_noodles%2C_Shanghai.jpg/500px-Dan-dan_noodles%2C_Shanghai.jpg",
-    "author": "Steven G. Johnson",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "볶음짬뽕",
-   "tags": [
-    "중식",
-    "해산물",
-    "면",
-    "매운맛"
-   ],
-   "price": 11500,
-   "price_range": [
-    10000,
-    13000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shikairo_Nagasaki_Japan05s.jpg/500px-Shikairo_Nagasaki_Japan05s.jpg",
-    "author": "663highland",
-    "license": "CC BY 2.5"
-   }
-  },
-  {
-   "name": "훠궈",
-   "tags": [
-    "중식",
-    "소고기",
-    "국물",
-    "매운맛",
-    "단체"
-   ],
-   "price": 27500,
-   "price_range": [
-    20000,
-    35000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Chongqing_Hot_Pot.jpg/500px-Chongqing_Hot_Pot.jpg",
-    "author": "Zhou Guanhuai",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "짬뽕밥",
-   "tags": [
-    "중식",
-    "해산물",
-    "국물",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10500,
-   "price_range": [
-    9500,
-    11500
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Jjampong.JPG/500px-Jjampong.JPG",
-    "author": "Alfpooh",
-    "license": "Public domain"
-   }
-  },
-  {
-   "name": "초밥",
-   "tags": [
-    "일식",
-    "해산물",
-    "날것",
-    "밥"
-   ],
-   "price": 20000,
-   "price_range": [
-    15000,
-    25000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/500px-Sushi_platter.jpg",
-    "author": "chidorian",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "회",
-   "tags": [
-    "일식",
-    "해산물",
-    "날것",
-    "술자리",
-    "단체"
-   ],
-   "price": 32500,
-   "price_range": [
-    25000,
-    40000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Korea_style_raw_fish.jpg/500px-Korea_style_raw_fish.jpg",
-    "author": "Warszk",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "돈까스",
-   "tags": [
-    "일식",
-    "돼지고기",
-    "튀김",
-    "밥",
-    "혼밥"
-   ],
-   "price": 13000,
-   "price_range": [
-    11000,
-    15000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tonkatsu_of_Kimukatsu.jpg/500px-Tonkatsu_of_Kimukatsu.jpg",
-    "author": "Minseong Kim",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "라멘",
-   "tags": [
-    "일식",
-    "돼지고기",
-    "면",
-    "국물",
-    "기름진",
-    "혼밥"
-   ],
-   "price": 12000,
-   "price_range": [
-    10000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/500px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg",
-    "author": "Lombroso",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "우동",
-   "tags": [
-    "일식",
-    "면",
-    "국물",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 9000,
-   "price_range": [
-    7500,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kakeudon.jpg/500px-Kakeudon.jpg",
-    "author": "Lusheeta",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "소바",
-   "tags": [
-    "일식",
-    "면",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    9500,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Zaru_soba_by_spinachdip.jpg/500px-Zaru_soba_by_spinachdip.jpg",
-    "author": "spinachdip",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "규동",
-   "tags": [
-    "일식",
-    "소고기",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10500,
-   "price_range": [
-    9000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gyuu-don_003.jpg/500px-Gyuu-don_003.jpg",
-    "author": "Ocdp",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "일본식카레",
-   "tags": [
-    "일식",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    9000,
-    11500
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beef_curry_rice_003.jpg/500px-Beef_curry_rice_003.jpg",
-    "author": "Ocdp",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "텐동",
-   "tags": [
-    "일식",
-    "해산물",
-    "튀김",
-    "밥"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Tendon_by_udono_in_Tokyo.jpg/500px-Tendon_by_udono_in_Tokyo.jpg",
-    "author": "udono",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "연어덮밥",
-   "tags": [
-    "일식",
-    "해산물",
-    "날것",
-    "밥",
-    "가벼움"
-   ],
-   "price": 12500,
-   "price_range": [
-    9900,
-    15000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Salmon_don_of_Nakau.jpg/500px-Salmon_don_of_Nakau.jpg",
-    "author": "ノボホショコロトソ",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "가츠동",
-   "tags": [
-    "일식",
-    "돼지고기",
-    "튀김",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    9500,
-    11000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Katsudon_001.jpg/500px-Katsudon_001.jpg",
-    "author": "Ocdp",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "오야코동",
-   "tags": [
-    "일식",
-    "닭고기",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    9000,
-    11000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Oyakodon_003.jpg/500px-Oyakodon_003.jpg",
-    "author": "Ocdp",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "장어덮밥",
-   "tags": [
-    "일식",
-    "해산물",
-    "밥"
-   ],
-   "price": 32500,
-   "price_range": [
-    25000,
-    40000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Tokyo_Chikuyotei_Unadon01s2100.jpg/500px-Tokyo_Chikuyotei_Unadon01s2100.jpg",
-    "author": "663highland",
-    "license": "CC BY 2.5"
-   }
-  },
-  {
-   "name": "규카츠",
-   "tags": [
-    "일식",
-    "소고기",
-    "튀김",
-    "밥"
-   ],
-   "price": 19000,
-   "price_range": [
-    16000,
-    22000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/%E7%82%B8%E7%89%9B%E6%8E%92%2C_%E4%BA%AC%E9%83%BD%E5%8B%9D%E7%89%9B%2C_%E5%8B%9D%E7%89%9B%2C_%E4%BA%AC%E9%83%BD%2C_%E6%97%A5%E6%9C%AC%2C_%E4%BA%AC%E9%83%BD%E5%8B%9D%E7%89%9B%E4%BA%AC%E9%83%BD%E9%A7%85%E5%89%8D%2C_%E7%89%9B%E3%82%AB%E3%83%84%E5%B0%82%E9%96%80%E5%BA%97%2C_%E3%81%8D%E3%82%87%E3%81%86%E3%81%A8%2C_%E3%81%BF%E3%82%84%E3%81%93%2C_%E3%81%8D%E3%82%87%E3%81%86%E3%81%AE%E3%81%BF%E3%82%84%E3%81%93%2C_%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93%2C_%E3%81%AB%E3%81%BB%E3%82%93%2C_Kyoto_Katsugyu%2C_Kyoto%2C_Japan%2C_Nippon%2C_Nihon_%2824897293890%29.jpg/500px-thumbnail.jpg",
-    "author": "bryan... from Taipei",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "오코노미야키",
-   "tags": [
-    "일식",
-    "해산물",
-    "돼지고기",
-    "기름진",
-    "술자리"
-   ],
-   "price": 17500,
-   "price_range": [
-    15000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Okonomiyaki_001.jpg/500px-Okonomiyaki_001.jpg",
-    "author": "ume-y",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "타코야키",
-   "tags": [
-    "일식",
-    "해산물",
-    "가벼움"
-   ],
-   "price": 6500,
-   "price_range": [
-    5000,
-    8000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Takoyaki_by_yomi955.jpg/500px-Takoyaki_by_yomi955.jpg",
-    "author": "heiwa4126",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "스키야키",
-   "tags": [
-    "일식",
-    "소고기",
-    "국물",
-    "단체"
-   ],
-   "price": 30000,
-   "price_range": [
-    25000,
-    35000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sukiyaki_01.jpg/500px-Sukiyaki_01.jpg",
-    "author": "ajari",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "야키토리",
-   "tags": [
-    "일식",
-    "닭고기",
-    "술자리"
-   ],
-   "price": 20000,
-   "price_range": [
-    15000,
-    25000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cooking_yakitori.jpg/500px-Cooking_yakitori.jpg",
-    "author": "竹麦魚(Searobin)",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "카이센동",
-   "tags": [
-    "일식",
-    "해산물",
-    "날것",
-    "밥"
-   ],
-   "price": 23000,
-   "price_range": [
-    18000,
-    28000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Kaisendon_001.jpg/500px-Kaisendon_001.jpg",
-    "author": "pxfuel",
-    "license": "CC BY-SA 4.0"
-   }
+   },
+   "includes": [
+    "샤브샤브",
+    "월남쌈"
+   ]
   },
   {
    "name": "파스타",
    "tags": [
     "양식",
-    "면"
+    "면",
+    "유제품"
    ],
    "price": 22000,
    "price_range": [
@@ -1858,27 +561,13 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg/500px-%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg",
     "author": "David Adam Kess",
     "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "크림파스타",
-   "tags": [
-    "양식",
-    "면",
-    "유제품",
-    "기름진"
-   ],
-   "price": 22500,
-   "price_range": [
-    16000,
-    29000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Espaguetis_carbonara.jpg/500px-Espaguetis_carbonara.jpg",
-    "author": "Javier Somoza",
-    "license": "CC BY-SA 4.0"
-   }
+   },
+   "includes": [
+    "파스타",
+    "크림파스타",
+    "리조또",
+    "라자냐"
+   ]
   },
   {
    "name": "피자",
@@ -1899,7 +588,10 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/500px-Pizza-3007395.jpg",
     "author": "igorovsyannykov",
     "license": "CC0"
-   }
+   },
+   "includes": [
+    "피자"
+   ]
   },
   {
    "name": "스테이크",
@@ -1907,9 +599,9 @@
     "양식",
     "소고기"
    ],
-   "price": 50000,
+   "price": 46500,
    "price_range": [
-    35000,
+    28000,
     65000
    ],
    "price_src": "프",
@@ -1917,38 +609,24 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/500px-Beef_fillet_steak_with_mushrooms.jpg",
     "author": "Archie MacDonald52",
     "license": "CC BY-SA 3.0"
-   }
+   },
+   "includes": [
+    "스테이크",
+    "함박스테이크",
+    "바비큐 폭립"
+   ]
   },
   {
-   "name": "리조또",
+   "name": "브런치·샐러드",
    "tags": [
     "양식",
-    "밥",
-    "유제품"
-   ],
-   "price": 22000,
-   "price_range": [
-    16000,
-    28000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Risotto_Alla_Marinara.jpg/500px-Risotto_Alla_Marinara.jpg",
-    "author": "Flickr 사용자",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "브런치",
-   "tags": [
-    "양식",
+    "가벼움",
     "빵",
-    "유제품",
-    "가벼움"
+    "채소위주"
    ],
-   "price": 18500,
+   "price": 17000,
    "price_range": [
-    15000,
+    12000,
     22000
    ],
    "price_src": "추",
@@ -1956,58 +634,24 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Traditional_Eggs_Benedict.jpg/500px-Traditional_Eggs_Benedict.jpg",
     "author": "Mark Miller",
     "license": "CC BY-SA 4.0"
-   }
+   },
+   "includes": [
+    "브런치",
+    "샐러드",
+    "샌드위치",
+    "포케"
+   ]
   },
   {
-   "name": "샐러드",
+   "name": "멕시칸",
    "tags": [
     "양식",
-    "채소위주",
-    "가벼움",
-    "혼밥"
+    "매운맛",
+    "빵"
    ],
    "price": 11500,
    "price_range": [
-    9000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/500px-Salad_platter.jpg",
-    "author": "fir0002 flagstaffotos",
-    "license": "GFDL 1.2"
-   }
-  },
-  {
-   "name": "샌드위치",
-   "tags": [
-    "양식",
-    "빵",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 9500,
-   "price_range": [
-    7000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Bologna_sandwich.jpg",
-    "author": "Diderot's dreams",
-    "license": "CC BY 3.0"
-   }
-  },
-  {
-   "name": "타코",
-   "tags": [
-    "양식",
-    "소고기",
-    "매운맛"
-   ],
-   "price": 12000,
-   "price_range": [
-    9000,
+    8000,
     15000
    ],
    "price_src": "추",
@@ -2015,204 +659,12 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/500px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg",
     "author": "Larry Miller",
     "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "함박스테이크",
-   "tags": [
-    "양식",
-    "소고기",
-    "밥"
-   ],
-   "price": 15500,
-   "price_range": [
-    13000,
-    18000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Salisbury_steak_%28Filete_ruso%29.jpg/500px-Salisbury_steak_%28Filete_ruso%29.jpg",
-    "author": "kawanet",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "감바스",
-   "tags": [
-    "양식",
-    "해산물",
-    "빵",
-    "기름진",
-    "술자리"
-   ],
-   "price": 21000,
-   "price_range": [
-    17000,
-    25000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Gambas_al_ajillo.jpg/500px-Gambas_al_ajillo.jpg",
-    "author": "Javier Lastras",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "라자냐",
-   "tags": [
-    "양식",
-    "소고기",
-    "유제품",
-    "기름진"
-   ],
-   "price": 23500,
-   "price_range": [
-    18000,
-    29000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Lasagne.png/500px-Lasagne.png",
-    "author": "Popo le Chien",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "그라탕",
-   "tags": [
-    "양식",
-    "유제품",
-    "기름진"
-   ],
-   "price": 17000,
-   "price_range": [
-    14000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Macaronigratin.jpg/500px-Macaronigratin.jpg",
-    "author": "Kuha455405",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "뇨끼",
-   "tags": [
-    "양식",
-    "유제품"
-   ],
-   "price": 20500,
-   "price_range": [
-    17000,
-    24000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/GnocchiUpCloseGrooved_%288324575897%29.jpg/500px-GnocchiUpCloseGrooved_%288324575897%29.jpg",
-    "author": "H. Alexander Talbot",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "오므라이스",
-   "tags": [
-    "양식",
-    "밥",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    6500,
-    13000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Omurice_by_Taimeiken.jpg/500px-Omurice_by_Taimeiken.jpg",
-    "author": "Kanesue",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "바비큐 폭립",
-   "tags": [
-    "양식",
-    "돼지고기",
-    "기름진",
-    "단체"
-   ],
-   "price": 37500,
-   "price_range": [
-    25000,
-    50000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Barbecued_pork_ribs.jpg/500px-Barbecued_pork_ribs.jpg",
-    "author": "CNEcija12345",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "피시앤칩스",
-   "tags": [
-    "양식",
-    "해산물",
-    "튀김",
-    "기름진"
-   ],
-   "price": 17500,
-   "price_range": [
-    15000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Fish_and_chips_blackpool.jpg/500px-Fish_and_chips_blackpool.jpg",
-    "author": "Matthias Meckel",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "부리또",
-   "tags": [
-    "양식",
-    "소고기",
-    "밥",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 10500,
-   "price_range": [
-    8000,
-    13000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Burrito_with_rice.jpg/500px-Burrito_with_rice.jpg",
-    "author": "Lauren Topor",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "퀘사디아",
-   "tags": [
-    "양식",
-    "닭고기",
-    "유제품",
-    "빵"
-   ],
-   "price": 11500,
-   "price_range": [
-    9000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Chicken_Quesadilla_dish_at_Latin_Bistro_restaurant_Summit_NJ.JPG/500px-Chicken_Quesadilla_dish_at_Latin_Bistro_restaurant_Summit_NJ.JPG",
-    "author": "Tomwsulcer",
-    "license": "CC0"
-   }
+   },
+   "includes": [
+    "타코",
+    "부리또",
+    "퀘사디아"
+   ]
   },
   {
    "name": "떡볶이",
@@ -2221,20 +673,27 @@
     "매운맛",
     "단체"
    ],
-   "price": 5000,
+   "price": 6000,
    "price_range": [
-    4500,
-    6000
+    4000,
+    8000
    ],
    "price_src": "프",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tteokbokki.JPG/500px-Tteokbokki.JPG",
     "author": "Popo le Chien",
     "license": "CC0"
-   }
+   },
+   "includes": [
+    "떡볶이",
+    "라볶이",
+    "로제떡볶이",
+    "모듬튀김",
+    "순대"
+   ]
   },
   {
-   "name": "김밥",
+   "name": "김밥·분식",
    "tags": [
     "분식",
     "밥",
@@ -2243,614 +702,98 @@
    ],
    "price": 4000,
    "price_range": [
-    3500,
-    4500
+    2500,
+    6000
    ],
    "price_src": "참",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
     "author": "changupn",
     "license": "CC0"
-   }
+   },
+   "includes": [
+    "김밥",
+    "라면",
+    "쫄면",
+    "컵밥",
+    "주먹밥"
+   ]
   },
   {
-   "name": "라볶이",
-   "tags": [
-    "분식",
-    "매운맛",
-    "면"
-   ],
-   "price": 6000,
-   "price_range": [
-    5000,
-    6500
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ra-bokki.jpg/500px-Ra-bokki.jpg",
-    "author": "farmtv",
-    "license": "CC BY 4.0"
-   }
-  },
-  {
-   "name": "순대",
-   "tags": [
-    "분식",
-    "돼지고기",
-    "내장"
-   ],
-   "price": 5500,
-   "price_range": [
-    4000,
-    7000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Korean.food-Sundae-01.jpg/500px-Korean.food-Sundae-01.jpg",
-    "author": "ayustety",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "모듬튀김",
-   "tags": [
-    "분식",
-    "튀김",
-    "기름진"
-   ],
-   "price": 5000,
-   "price_range": [
-    4000,
-    6000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Goguma_twigim-01.jpg/500px-Korean.cuisine-Goguma_twigim-01.jpg",
-    "author": "karendotcom127",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "쫄면",
-   "tags": [
-    "분식",
-    "면",
-    "매운맛"
-   ],
-   "price": 6000,
-   "price_range": [
-    5500,
-    7000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Jjolmyeon_2.jpg/500px-Jjolmyeon_2.jpg",
-    "author": "국립국어원",
-    "license": "CC BY-SA 2.0 KR"
-   }
-  },
-  {
-   "name": "라면",
-   "tags": [
-    "분식",
-    "면",
-    "국물",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 4000,
-   "price_range": [
-    3500,
-    5000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Haemul-ramyeon.jpg/500px-Haemul-ramyeon.jpg",
-    "author": "lazy fri13th",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "어묵",
-   "tags": [
-    "분식",
-    "국물",
-    "가벼움"
-   ],
-   "price": 4000,
-   "price_range": [
-    3000,
-    5000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Assorted_Eomuk.jpg/500px-Assorted_Eomuk.jpg",
-    "author": "Pibiy",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "토스트",
-   "tags": [
-    "분식",
-    "빵",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 5000,
-   "price_range": [
-    3900,
-    6100
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Toast-3.jpg/500px-Toast-3.jpg",
-    "author": "Rainer Z",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "핫도그",
-   "tags": [
-    "분식",
-    "빵",
-    "튀김"
-   ],
-   "price": 3500,
-   "price_range": [
-    2500,
-    4500
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hot_dog_with_mustard.png/500px-Hot_dog_with_mustard.png",
-    "author": "Renee Comet",
-    "license": "Public domain"
-   }
-  },
-  {
-   "name": "고기만두",
-   "tags": [
-    "분식",
-    "돼지고기",
-    "가벼움"
-   ],
-   "price": 6000,
-   "price_range": [
-    5000,
-    7000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/%EB%A7%8C%EB%91%90.jpg/500px-%EB%A7%8C%EB%91%90.jpg",
-    "author": "Raven9722",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "컵밥",
-   "tags": [
-    "분식",
-    "밥",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 7500,
-   "price_range": [
-    5000,
-    10000
-   ],
-   "price_src": "기",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Cup_bap_20191129_131957065_02.jpg/500px-Cup_bap_20191129_131957065_02.jpg",
-    "author": "Nasuin",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "주먹밥",
-   "tags": [
-    "분식",
-    "밥",
-    "가벼움",
-    "혼밥"
-   ],
-   "price": 3000,
-   "price_range": [
-    2000,
-    4000
-   ],
-   "price_src": "기",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Jumeok-bap.jpg/500px-Jumeok-bap.jpg",
-    "author": "Chloe Lim",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "떡꼬치",
-   "tags": [
-    "분식",
-    "매운맛",
-    "튀김"
-   ],
-   "price": 3000,
-   "price_range": [
-    2000,
-    3500
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Tteok-kkochi.jpg/500px-Tteok-kkochi.jpg",
-    "author": "Chloe Lim",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "로제떡볶이",
-   "tags": [
-    "분식",
-    "유제품",
-    "매운맛",
-    "단체"
-   ],
-   "price": 8500,
-   "price_range": [
-    7000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ros%C3%A9_tteok-bokki.jpg/500px-Ros%C3%A9_tteok-bokki.jpg",
-    "author": "Scudsvlad",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "쌀국수",
+   "name": "쌀국수·베트남",
    "tags": [
     "아시안",
-    "소고기",
     "면",
     "국물",
-    "가벼움",
-    "혼밥"
+    "가벼움"
    ],
-   "price": 11500,
+   "price": 13000,
    "price_range": [
-    10000,
-    13000
+    8000,
+    18000
    ],
    "price_src": "추",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Ph%E1%BB%9F_b%C3%B2_%2839425047901%29.jpg/500px-Ph%E1%BB%9F_b%C3%B2_%2839425047901%29.jpg",
     "author": "Vinnie Cartabiano",
     "license": "CC BY 2.0"
-   }
+   },
+   "includes": [
+    "쌀국수",
+    "분짜",
+    "반미",
+    "반쎄오"
+   ]
   },
   {
-   "name": "팟타이",
+   "name": "태국음식",
    "tags": [
     "아시안",
-    "해산물",
-    "면"
+    "매운맛",
+    "해산물"
    ],
-   "price": 14000,
+   "price": 15500,
    "price_range": [
-    12000,
-    16000
+    11000,
+    20000
    ],
    "price_src": "추",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Phat_Thai_kung_Chang_Khien_street_stall.jpg/500px-Phat_Thai_kung_Chang_Khien_street_stall.jpg",
     "author": "Takeaway",
     "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "분짜",
-   "tags": [
-    "아시안",
-    "돼지고기",
-    "면",
-    "가벼움"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Bun_cha.jpg/500px-Bun_cha.jpg",
-    "author": "tuhang",
-    "license": "CC BY-SA 4.0"
-   }
+   },
+   "includes": [
+    "팟타이",
+    "똠얌꿍",
+    "카오팟",
+    "그린커리",
+    "팟카파오"
+   ]
   },
   {
    "name": "인도커리",
    "tags": [
     "아시안",
-    "닭고기",
     "매운맛",
-    "빵",
     "유제품",
     "냄새강함"
    ],
-   "price": 16500,
+   "price": 19000,
    "price_range": [
     14000,
-    19000
+    24000
    ],
    "price_src": "추",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Curry_-_Indian_cuisine.jpg",
     "author": "kspoddar",
     "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "똠얌꿍",
-   "tags": [
-    "아시안",
-    "해산물",
-    "국물",
-    "매운맛",
-    "냄새강함"
-   ],
-   "price": 17500,
-   "price_range": [
-    15000,
-    20000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tom_yam_kung_maenam.jpg/500px-Tom_yam_kung_maenam.jpg",
-    "author": "Takeaway",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "반미",
-   "tags": [
-    "아시안",
-    "돼지고기",
-    "빵",
-    "혼밥"
-   ],
-   "price": 8500,
-   "price_range": [
-    7000,
-    10000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/B%C3%A1nh_m%C3%AC_th%E1%BB%8Bt_n%C6%B0%E1%BB%9Bng.png/500px-B%C3%A1nh_m%C3%AC_th%E1%BB%8Bt_n%C6%B0%E1%BB%9Bng.png",
-    "author": "nsaum75",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "포케",
-   "tags": [
-    "아시안",
-    "해산물",
-    "날것",
-    "채소위주",
-    "밥",
-    "가벼움"
-   ],
-   "price": 14000,
-   "price_range": [
-    12000,
-    16000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ahi_tuna_Poke.jpeg/500px-Ahi_tuna_Poke.jpeg",
-    "author": "Openmalware.exe",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "나시고렝",
-   "tags": [
-    "아시안",
-    "밥",
-    "매운맛",
-    "혼밥"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nasi_goreng_indonesia.jpg/500px-Nasi_goreng_indonesia.jpg",
-    "author": "Helito",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "미고렝",
-   "tags": [
-    "아시안",
-    "면",
-    "매운맛"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Mi_Goreng_GM.jpg/500px-Mi_Goreng_GM.jpg",
-    "author": "Gunawan Kartapranata",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "카오팟",
-   "tags": [
-    "아시안",
-    "해산물",
-    "밥"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Thaifriedrice.jpg/500px-Thaifriedrice.jpg",
-    "author": "Jazzcello",
-    "license": "CC BY 2.5"
-   }
-  },
-  {
-   "name": "그린커리",
-   "tags": [
-    "아시안",
-    "닭고기",
-    "매운맛",
-    "밥"
-   ],
-   "price": 15000,
-   "price_range": [
-    13000,
-    17000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Thai_green_chicken_curry_and_roti.jpg/500px-Thai_green_chicken_curry_and_roti.jpg",
-    "author": "Takeaway",
-    "license": "CC BY-SA 3.0"
-   }
-  },
-  {
-   "name": "월남쌈",
-   "tags": [
-    "아시안",
-    "채소위주",
-    "가벼움",
-    "단체"
-   ],
-   "price": 20500,
-   "price_range": [
-    15000,
-    26000
-   ],
-   "price_src": "프",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sommerrolle_mit_Hoisin-Sauce_170305_AW.jpg/500px-Sommerrolle_mit_Hoisin-Sauce_170305_AW.jpg",
-    "author": "Alice Wiegand",
-    "license": "CC BY-SA 4.0"
-   }
-  },
-  {
-   "name": "반쎄오",
-   "tags": [
-    "아시안",
-    "해산물",
-    "돼지고기",
-    "기름진"
-   ],
-   "price": 16000,
-   "price_range": [
-    14000,
-    18000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Banh_Xeo%2C_Eden_Center.jpg/500px-Banh_Xeo%2C_Eden_Center.jpg",
-    "author": "freshcrackedpepper",
-    "license": "CC BY 2.0"
-   }
-  },
-  {
-   "name": "탄두리치킨",
-   "tags": [
-    "아시안",
-    "닭고기",
-    "매운맛",
-    "냄새강함"
-   ],
-   "price": 20000,
-   "price_range": [
-    16000,
-    24000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Chickentandoori.jpg",
-    "author": "kspoddar",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "케밥",
-   "tags": [
-    "아시안",
-    "소고기",
-    "빵",
-    "혼밥"
-   ],
-   "price": 10000,
-   "price_range": [
-    8000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Lula_kebab_2.jpg/500px-Lula_kebab_2.jpg",
-    "author": "Lesya Dolyk",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "팟카파오",
-   "tags": [
-    "아시안",
-    "돼지고기",
-    "매운맛",
-    "밥",
-    "혼밥"
-   ],
-   "price": 12500,
-   "price_range": [
-    11000,
-    14000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Basil_fried_crispy_pork_with_rice_-_Chiang_Mai_-_2017-07-11_%28002%29.jpg/500px-Basil_fried_crispy_pork_with_rice_-_Chiang_Mai_-_2017-07-11_%28002%29.jpg",
-    "author": "Iudexvivorum",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "햄버거",
-   "tags": [
-    "패스트푸드",
-    "소고기",
-    "빵",
-    "튀김",
-    "혼밥"
-   ],
-   "price": 6000,
-   "price_range": [
-    5000,
-    7500
-   ],
-   "price_src": "기",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/500px-RedDot_Burger.jpg",
-    "author": "Hongreddotbrewhouse",
-    "license": "CC BY-SA 3.0"
-   }
+   },
+   "includes": [
+    "인도커리",
+    "탄두리치킨"
+   ]
   },
   {
    "name": "치킨",
@@ -2862,121 +805,73 @@
     "단체",
     "술자리"
    ],
-   "price": 12500,
+   "price": 13000,
    "price_range": [
-    10000,
-    15000
+    8000,
+    18000
    ],
    "price_src": "기",
    "photo": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried-Chicken-Set.jpg/500px-Fried-Chicken-Set.jpg",
     "author": "Evan-Amos",
     "license": "CC0"
-   }
+   },
+   "includes": [
+    "치킨",
+    "양념치킨",
+    "닭강정",
+    "버팔로윙"
+   ]
   },
   {
-   "name": "양념치킨",
+   "name": "버거",
    "tags": [
     "패스트푸드",
-    "닭고기",
-    "튀김",
-    "매운맛",
-    "단체",
-    "술자리"
-   ],
-   "price": 13000,
-   "price_range": [
-    11000,
-    15000
-   ],
-   "price_src": "기",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Korean.cuisine-Yangnyeom_chicken-01.jpg/500px-Korean.cuisine-Yangnyeom_chicken-01.jpg",
-    "author": "ayustety",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "닭강정",
-   "tags": [
-    "패스트푸드",
-    "닭고기",
-    "튀김",
-    "단체"
-   ],
-   "price": 10000,
-   "price_range": [
-    8000,
-    12000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dak-gangjeong_3.jpg/500px-Dak-gangjeong_3.jpg",
-    "author": "hyun chun kim",
-    "license": "CC0"
-   }
-  },
-  {
-   "name": "치킨버거",
-   "tags": [
-    "패스트푸드",
-    "닭고기",
     "빵",
-    "튀김",
+    "소고기",
     "혼밥"
    ],
-   "price": 6500,
+   "price": 8000,
    "price_range": [
     5000,
-    8000
+    10500
    ],
    "price_src": "기",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Crispy_Chicken_Burger_%26_French_Fry_Set.jpg/500px-Crispy_Chicken_Burger_%26_French_Fry_Set.jpg",
-    "author": "Miyuki Meinaka",
-    "license": "CC BY-SA 4.0"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/500px-RedDot_Burger.jpg",
+    "author": "Hongreddotbrewhouse",
+    "license": "CC BY-SA 3.0"
+   },
+   "includes": [
+    "햄버거",
+    "수제버거",
+    "치킨버거"
+   ]
   },
   {
-   "name": "버팔로윙",
+   "name": "토스트·샌드위치",
    "tags": [
-    "패스트푸드",
-    "닭고기",
-    "튀김",
-    "매운맛",
-    "술자리"
-   ],
-   "price": 15000,
-   "price_range": [
-    12000,
-    18000
-   ],
-   "price_src": "추",
-   "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Buffalo_-_Wings_at_Airport_Anchor_Bar.jpg/500px-Buffalo_-_Wings_at_Airport_Anchor_Bar.jpg",
-    "author": "Andrew Nash",
-    "license": "CC BY-SA 2.0"
-   }
-  },
-  {
-   "name": "수제버거",
-   "tags": [
-    "패스트푸드",
-    "소고기",
+    "분식",
     "빵",
-    "기름진"
+    "가벼움",
+    "혼밥"
    ],
-   "price": 16000,
+   "price": 6000,
    "price_range": [
-    12000,
-    20000
+    3000,
+    8500
    ],
-   "price_src": "추",
+   "price_src": "프",
    "photo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheeseburger.jpg/500px-Cheeseburger.jpg",
-    "author": "Renee Comet",
-    "license": "Public domain"
-   }
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Toast-3.jpg/500px-Toast-3.jpg",
+    "author": "Rainer Z",
+    "license": "CC BY-SA 3.0"
+   },
+   "includes": [
+    "토스트",
+    "핫도그",
+    "샌드위치"
+   ]
   }
  ],
  "price_sources": [
